@@ -1,0 +1,4 @@
+*.sqlite
+*.sqlite-journal
+/raw files/
+/node modules/
