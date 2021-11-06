@@ -113,14 +113,16 @@ class PostController extends Controller
 
         //logic if new default image is uploaded
         //delete old image
-        $old_d_i = 'storage/files/blog_images/'.substr($request->c_default_image,25);
-        $file = substr($request->c_default_image,25);
-        if(file_exists($old_d_i) && strlen($file)>0)
-        {
-            unlink($old_d_i);
+        if ($request->hasFile('image')){
+            $old_d_i = 'storage/files/blog_images/'.substr($request->c_default_image,25);
+            $file = substr($request->c_default_image,25);
+            if(file_exists($old_d_i) && strlen($file)>0)
+            {
+                unlink($old_d_i);
+            }
+            //save new to database
+            $post->image = $request->image->store('public/files/blog_images');
         }
-        //save new to database
-        $post->image = $request->image->store('public/files/blog_images');
 
 
         $post->title = $request->title;

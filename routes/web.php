@@ -41,10 +41,12 @@ Route::group(['namespace' => 'user'], function(){
     Route::get('/','HomeController@home');
     Route::get('/blog','HomeController@blog');
     Route::get('/properties','HomeController@properties');
-    Route::get('/about_us','HomeController@about');
-    Route::get('/contact_us','HomeController@contact');
+    Route::get('/new-developments','HomeController@developments');
+    Route::get('/about-us','HomeController@about');
+    Route::get('/contact-us','HomeController@contact');
     Route::get('blog/{post}','HomeController@post')->name('post');
     Route::get('property/{property}','HomeController@property')->name('property');
+    Route::get('location/{location}','HomeController@location')->name('location');
     Route::get('offers/','HomeController@offers');
     Route::get('portfolio/','HomeController@portfolio');
     Route::get('offer/{offer}','HomeController@offer')->name('offer');

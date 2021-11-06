@@ -354,6 +354,9 @@
 	.at-headervtwo .at-navigation > ul > li > a{color: var(--secthemecolor);}
 }
 @media (max-width:800px){
+    #at-homeslidervone figure{
+        height: 650px;
+    }
 	.at-topbar .at-loginoption,
 	.at-topbar .at-registeroption,
 	.at-topbar .at-detailsbtn-topbar{margin-top:0; }
@@ -375,6 +378,9 @@
 	.at-loginoption{padding-left:0; }
 }
 @media (max-width:767px){
+    #at-homeslidervone figure{
+        height: 600px;
+    }
 	.at-howitwork-holder > .at-howitwork:nth-child(odd) > .row > div:first-child,
 	.at-howitwork-holder > .at-howitwork:nth-child(even) > .row > div:last-child{margin-top: 26px;}
 	.at-comming-sooncounter li h1 {
@@ -485,8 +491,11 @@
 	.at-advancedsearch-holder .at-searchradio > .at-title{padding: 0;}
 }
 @media (max-width:720px){
+    #at-homeslidervone figure{
+        height: 600px;
+    }
 	.at-loginarea .at-detailsbtn-topbar .at-btn{margin:0 -1px 0 -4px;}
-	.at-slider-header{display: none;}
+	/*.at-slider-header{display: none;}*/
 	.at-userlogin{padding-bottom: 0;}
 	.at-detailsbtn-topbar{margin: 0;margin-left:5px; }
 	.at-homeslider-thumbnail{display: none;}
@@ -531,6 +540,9 @@
 	.at-headervtwo .at-loginoption{padding-left:0; }
 }
 @media (max-width:640px){
+    #at-homeslidervone figure{
+        height: 580px;
+    }
 	.at-room-radiovtwo .at-radio,
 	.at-room-radiovtwo .at-checkbox{width: 100%;}
 	.at-room-radiovtwo .at-radio + .at-radio,
@@ -590,6 +602,9 @@
 	.at-locations-info .at-fwidget-content li:nth-child(2){margin-top:12px; }
 }
 @media (max-width:568px){
+    #at-homeslidervone figure{
+        height: 580px;
+    }
 	.at-comming-sooncounter li{padding: 0;}
 	.at-footercs .at-socialicons,
 	.at-comming-sooncounter li{width: 100%; }
@@ -647,6 +662,12 @@
 	.at-innerbannercontent .at-title h2{font-size: 26px;}
 }
 @media (max-width:480px){
+    #at-homeslidervone figure{
+        height: 580px;
+    }
+    #about-realty{
+        font-size: 15px;
+    }
 	.at-widgetcontent .at-room-radioholdervtwo .at-radio label img{margin: 0 0 10px;}
 	.at-widgetcontent .at-room-radioholdervtwo .at-radio label span{display: block;}
 	.at-resulttitle{margin: 0;}
@@ -757,6 +778,9 @@
 	}
 }
 @media (max-width:420px){
+    #at-homeslidervone figure{
+        height: 580px;
+    }
 	.at-success-content .at-title h2{
 		padding: 0;
 		display: block;

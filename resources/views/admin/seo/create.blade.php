@@ -91,12 +91,6 @@
                                                 <input type="text" class="form-control" id="meta_keywords" name="revisit_after" placeholder="eg 5 days" value="{{ old('revisit_after') }}" required="required">
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="slug">Custom css for page</label>
-                                                <textarea name="css" cols="30" rows="5" style="align-content: left"
-                                                          class="form-control">
-                                                {{ old('css') }}
-                                            </textarea>
                                             </div>
 
                                         </div>

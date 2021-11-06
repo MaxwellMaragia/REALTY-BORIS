@@ -10,12 +10,12 @@
                         </div>
                         <div class="at-fwidget-content">
                             <ul>
-                                <li><a href="javascript:void(0);">Home</a></li>
-                                <li><a href="javascript:void(0);">About</a></li>
-                                <li><a href="javascript:void(0);">Properties</a></li>
-                                <li><a href="javascript:void(0);">Blog</a></li>
-                                <li><a href="javascript:void(0);">Contact us</a></li>
-                                <li><a href="javascript:void(0);">List with us</a></li>
+                                <li><a href="{{ url('home') }}">Home</a></li>
+                                <li><a href="{{ url('about-us') }}">About</a></li>
+                                <li><a href="{{ url('properties') }}">Properties</a></li>
+                                <li><a href="{{ url('blog') }}">Blog</a></li>
+                                <li><a href="{{ url('contact-us') }}">Contact us</a></li>
+                                <li><a href="{{ url('new-developments') }}">New developments</a></li>
 
                             </ul>
                         </div>
@@ -24,12 +24,12 @@
                 <div class="col-12 col-md-12 col-lg-6 col-xl-5">
                     <div class="at-fwidget at-locations-info">
                         <div class="at-fwidget-titile">
-                            <h3>Explore Top Locations</h3>
+                            <h3>Explore Properties in listed Locations</h3>
                         </div>
                         <div class="at-fwidget-content">
                             <ul>
                                 @foreach($locations as $location)
-                                <li><a href="javascript:void(0);">{{ $location->name }}</a></li>
+                                <li><a href="{{ route('location',$location) }}">{{ $location->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -41,11 +41,11 @@
                             <h3>Follow Us</h3>
                         </div>
                         <ul class="at-socialicons at-socialicons-white">
-                            <li class="at-facebook"><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="at-twitter"><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
-                            <li class="at-youtube"><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
-                            <li class="at-instagram"><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
-                            <li class="at-instagram"><a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a></li>
+                            <li class="at-facebook"><a href="{{ $facebook->value }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="at-twitter"><a href="{{ $twitter->value }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li class="at-youtube"><a href="{{ $youtube->value }}" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                            <li class="at-instagram"><a href="{{ $instagram->value }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li class="at-instagram"><a href="https://wa.me/{{ $whatsapp->value }}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                         </ul>
 
                     </div>
@@ -60,7 +60,7 @@
                     <div class="at-copyrights-holder">
                         <div class="at-flogoarea">
                             <strong class="at-flogo"><a href="{{ url('/') }}"><img src="{{ Storage::url($logo_light->value) }}" alt="footer logo"></a></strong>
-                            <p class="at-copyrights">Copyrights © 2021 REALTY BORIS All Rights Reserved.</p>
+                            <p class="at-copyrights">Copyrights © <script>document.write(new Date().getFullYear());</script> REALTY BORIS All Rights Reserved.</p>
                         </div>
                     </div>
                 </div>

@@ -100,22 +100,22 @@
                                     <div class="col-md-4">
 
                                         <div class="form-group">
-                                            <label for="title">Size (ft)</label>
+                                            <label for="title">Size (ft)<span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="size" name="size" placeholder="eg 200 sqft"  value="{{ $property->size }}" required="required">
                                         </div>
                                         <div class="form-group">
-                                            <label for="title">Number of bedrooms</label>
+                                            <label for="title">Number of bedrooms<span class="text-danger">*</span></label>
                                             <input type="number" class="form-control" id="bedroom" name="bedroom" placeholder="eg 0"  value="{{ $property->bedroom }}" required="required">
                                         </div>
                                         <div class="form-group">
-                                            <label for="title">Number of bathrooms</label>
+                                            <label for="title">Number of bathrooms<span class="text-danger">*</span></label>
                                             <input type="number" class="form-control" id="bathroom" name="bathroom" placeholder="eg 0"  value="{{ $property->bathroom }}" required="required">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="title">Completion date <small class="text-info">(If property is under new development/optional)</small></label>
-                                            <input type="date" class="form-control" id="date" name="completion_date" placeholder="Completion date"  value="{{ $property->completion_date }}">
+                                            <input type="date" class="form-control" id="completion_date" name="completion_date" placeholder="Completion date"  value="{{ $property->completion_date }}">
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_2">
                                 <div class="form-group">
-                                    <label for="title">Description</label>
+                                    <label for="title">Description<span class="text-danger">*</span></label>
                                     <textarea name="description" id="editor1" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                                             {{ $property->description }}
                                     </textarea>
@@ -164,6 +164,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="form-group">
+                                                <label>Upload default image (350px by 250px)</label><span class="text-danger">*</span>
                                                 <img src="{{ Storage::url($property->image) }}"  alt="User Image" id="preview" height="auto" width="100%" onchange="previewImage(this)">
                                             </div>
                                             <div class="file">
@@ -171,7 +172,7 @@
                                                 <input type="file" name="image" accept="image/*" class="form-control" id="default">
                                             </div>
                                         </div>
-                                        <label for="video">Upload new carousel images</label>
+                                        <label for="video">Upload new carousel images <span class="text-danger">(height must be 533px)</span></label>
                                         <input type="file" name="carousel[]" class="form-control" multiple accept="image/*"/>
                                     </div>
 
@@ -203,7 +204,7 @@
 
                                             <label for="slug">Set as new development</label><br>
                                             <div class="checkbox">
-                                                <label><input type="checkbox" value="1" name="new_development"
+                                                <label><input type="checkbox" value="1" name="new_development" id="new_development"
                                                               @if($property->new_development==1)
                                                               checked
                                                         @endif
@@ -246,15 +247,12 @@
             $('.select2').select2();
         });
 
-        $('#banner_check').change(function(){
+        $('#new_development').change(function(){
             if($(this).is(":checked")) {
-
-                $('div.check').removeClass("hide");
-                $('#banner_image').attr('required','required');
+                $('#completion_date').attr('required','required');
 
             } else {
-                $('div.check').addClass("hide");
-                $('#banner_image').removeAttr('required');
+                $('#completion_date').removeAttr('required');
 
             }
         });

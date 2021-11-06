@@ -8,7 +8,7 @@ class location extends Model
 {
     public function properties()
     {
-
+        return $this->hasMany(property::class,'location');
     }
 
     public function getRouteKeyName()

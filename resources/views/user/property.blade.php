@@ -13,9 +13,38 @@
     <!-- keywords -->
     <meta name="keywords" content="{{ $property->meta_keywords }}">
 
+
 @endsection
 {{--end meta tags--}}
+@section('additional-css')
+    <link rel="stylesheet" href="{{ asset('user/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('user/css/slick-theme.css') }}">
+    <style>
+        @media (max-width: 767px) {
+            .hidden-xs {
+                display: none !important;
+            }
+        }
 
+        @media (min-width: 768px) and (max-width: 991px) {
+            .hidden-sm {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .hidden-md {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hidden-lg {
+                display: none !important;
+            }
+        }
+    </style>
+@endsection
 {{--additional css--}}
 
 
@@ -33,8 +62,12 @@
                                     @if($property->featured == 1)
                                         <a href="javascript:void(0);" class="at-tag">Featured</a>
                                     @endif
+                                    @if($property->new_development ==1)
+                                        <a href="javascript:void(0)" class="at-tag at-rated">New development</a>
+                                    @endif
                                 </div>
                                 <div class="at-username">
+                                    <h2>{{ $property->meta_title }}</h2>
                                     <address><i
                                             class="fa fa-location-arrow"></i>{{ $property->property_location->name }}
                                     </address>
@@ -50,23 +83,37 @@
                                     </a></li>
                                 <li><a href="javascript:void(0);"><i
                                             class="fa fa-shower"></i>Bathrooms: {{ $property->bathroom }}</a></li>
+                                @if($property->new_development ==1)
+                                    <li><a href="javascript:void(0)">
+                                            <i class="fa fa-calendar-check"></i>Completion
+                                            date: {{ $property->completion_date }}
+                                        </a></li>
+                                @endif
+
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="at-propertysilder" class="at-propertysilder owl-carousel">
+
+        <div class="carousel hidden-md hidden-lg">
             @foreach($images as $image)
-            <div class="item">
-                <div class="at-propertysilder-img at-propertysilder-mtr">
-                    <figure>
+            <div><img src="{{ Storage::url($image) }}" alt="img description"></div>
+            @endforeach
+        </div>
+
+        <div id="at-propertysilder" class="at-propertysilder owl-carousel hidden-sm hidden-xs">
+            @foreach($images as $image)
+                <div class="item">
+                    <div class="at-propertysilder-img at-propertysilder-mtr">
+                        <figure>
                             <a href="{{ Storage::url($image) }}" data-rel="prettyPhoto[gallery]">
                                 <img src="{{ Storage::url($image) }}" alt="img description">
                             </a>
-                    </figure>
+                        </figure>
+                    </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -81,9 +128,6 @@
                     <div id="at-twocolumns" class="at-twocolumns at-haslayout">
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 float-left">
-                            <div class="at-gridlist-option at-option-mt">
-                                <a href="javascript:void(0);" id="at-btnopenclose" class="at-btnopenclose"><i class="ti-settings"></i></a>
-                            </div>
                             <div class="at-propertylinkdetails at-haslayout">
                                 <ul class="at-propertylink">
                                     <li><a href="#at-about">About property</a></li>
@@ -94,7 +138,7 @@
                                         <h3>About Property</h3>
                                     </div>
                                     <div class="at-description">
-                                         {!! htmlspecialchars_decode($property->description) !!}
+                                        {!! htmlspecialchars_decode($property->description) !!}
                                     </div>
                                 </div>
                                 <div class="at-propertydetails at-detailsproperty">
@@ -114,11 +158,11 @@
                                     </div>
                                     <ul id="at-amenetieslisting" class="at-amenetieslisting">
                                         @foreach($property->features as $feature)
-                                        <li>
-                                            <div class="at-amenetiescontent">
-                                                <span>{{ $feature->name }}</span>
-                                            </div>
-                                        </li>
+                                            <li>
+                                                <div class="at-amenetiescontent">
+                                                    <span>{{ $feature->name }}</span>
+                                                </div>
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -131,6 +175,14 @@
         <!-- Two Columns End -->
     </main>
     <!-- Main End -->
+@section('additional-js')
 
+    <script src="{{ asset('user/js/slick.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.carousel').slick();
+        });
+    </script>
+@endsection
 @endsection
 

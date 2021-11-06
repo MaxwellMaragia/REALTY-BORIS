@@ -59,7 +59,7 @@
                                     <h1><span>Find Exotic &amp; Affordable</span></h1>
                                 </div>
                                 <div class="at-description">
-                                    <a href="javascript:void(0);" class="at-btn at-btnactive">Start Exploring</a>
+                                    <a href="{{ url('properties') }}" class="at-btn at-btnactive">Start Exploring</a>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                                 </a>
                                 <figcaption>
                                     <div class="at-trip-content">
-                                        <h3>{{ $featured->property_location->name }}</h3>
+                                        <h3>{{ $featured->meta_title }}</h3>
                                         <h4>{{ $featured->price }} <span>(Ksh)</span></h4>
                                     </div>
                                 </figcaption>
@@ -103,7 +103,7 @@
                         </div>
                         @endforeach
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left at-btnarea">
-                            <a href="javascript:void(0);" class="at-btn">View All</a>
+                            <a href="{{ url('properties') }}" class="at-btn">View All</a>
                         </div>
                     </div>
                 </div>
@@ -122,8 +122,12 @@
                                 </div><!-- end col-md-7 -->
                                 <div class="col-md-6 col-xs-12">
                                     <div class="text-center"><h1>REALTY BORIS</h1></div>
-                                    <p id="about-realty">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                        <br>more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    <div class="container">
+                                        <p id="about-realty">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                            <br>more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        </p>
+                                    </div>
                                 </div><!-- end col-md-5-->
                             </div><!--end row -->
                         </div><!-- end about-me-box -->
@@ -137,8 +141,8 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="at-category-gallery at-haslayout">
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left">
-                            <a href="javascript:void(0);">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left" >
+                            <a href="{{ url('contact-us') }}">
                                 <figure class="at-category-img">
                                     <img src="{{ asset('user/images/category/img-01.jpg')}}" alt="img description">
                                     <figcaption><h3>List with us</h3></figcaption>
@@ -146,7 +150,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left">
-                            <a href="javascript:void(0);">
+                            <a href="{{ url('new-developments') }}">
                                 <figure class="at-category-img">
                                     <img src="{{ asset('user/images/category/img-02.jpg')}}" alt="img description">
                                     <figcaption><h3>New developments</h3></figcaption>
@@ -154,7 +158,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left">
-                            <a href="javascript:void(0);">
+                            <a href="{{ url('contact-us') }}">
                                 <figure class="at-category-img">
                                     <img src="{{ asset('user/images/category/img-03.jpg')}}" alt="img description">
                                     <figcaption><h3>Our offices</h3></figcaption>

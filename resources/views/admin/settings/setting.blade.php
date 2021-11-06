@@ -56,9 +56,9 @@
                             <div class="col-md-offset-3 col-md-6">
 
 
-                                <div class="form-group text-center">
-                                    <div class="form-group text-center">
-                                        <img src="{{ Storage::url($logo_dark->value) }}"  alt="User Image" id="preview" height="50px" width="100px" onchange="previewImage(this)">
+                                <div class="form-group ">
+                                    <div class="form-group" style="background-color: black;">
+                                        <img src="{{ Storage::url($logo_dark->value) }}"  alt="User Image" id="preview" width="20%;" onchange="previewImage(this)">
                                     </div>
                                     <div class="file">
                                         <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload dark logo</label>
@@ -67,9 +67,9 @@
                                 </div>
 
 
-                                <div class="form-group text-center">
-                                    <div class="form-group text-center">
-                                        <img src="{{ Storage::url($logo_light->value) }}"  alt="User Image" id="preview1" height="50px" width="100px" onchange="previewImage(this)">
+                                <div class="form-group ">
+                                    <div class="form-group ">
+                                        <img src="{{ Storage::url($logo_light->value) }}"  alt="User Image" id="preview1" onchange="previewImage(this)">
                                     </div>
                                     <div class="file">
                                         <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload light logo</label>
@@ -77,8 +77,8 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group text-center">
-                                    <div class="form-group text-center">
+                                <div class="form-group ">
+                                    <div class="form-group ">
                                         <img src="{{ Storage::url($favicon->value) }}"  alt="User Image" id="preview2" height="50px" width="50px" onchange="previewImage(this)">
                                     </div>
                                     <div class="file">
@@ -132,6 +132,16 @@
                                     <input type="url" class="form-control" id="slug" name="map" placeholder="Google map address" required="required" value="{{ $map->value }}">
                                 </div>
 
+                                <div class="form-group ">
+                                    <div class="form-group ">
+                                        <img src="{{ Storage::url($about_image->value) }}"  alt="User Image" id="preview3" height="150px" width="300px" onchange="previewImage(this)">
+                                    </div>
+                                    <div class="file">
+                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload about image</label>
+                                        <input type="file" name="about_image" accept="image/*" class="form-control" id="about_image">
+                                    </div>
+                                </div>
+
                                 {{--<div class="form-group">--}}
                                     {{--<label for="name">Short description</label>--}}
                                     {{--<textarea class="form-control" rows="3" placeholder="Write short description...." name="short_description">--}}
@@ -140,11 +150,12 @@
 
                                 {{--</div>--}}
 
-                                {{--<div class="form-group">--}}
-                                        {{--<textarea name="description" id="editor1" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">--}}
-                                            {{--{{ $service->description }}--}}
-                                        {{--</textarea>--}}
-                                {{--</div>--}}
+                                <div class="form-group">
+                                    <label for="editor1">About us text body</label>
+                                        <textarea name="about_text" id="editor1" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                            {{ $about_text->value }}
+                                        </textarea>
+                                </div>
 
 
                                 {{--<div class="form-group">--}}
@@ -212,6 +223,9 @@
         });
         $("#favicon").change(function(){
             readURL(this,'#preview2');
+        });
+        $("#about_image").change(function(){
+            readURL(this,'#preview3');
         });
 
     </script>

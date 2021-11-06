@@ -10,8 +10,8 @@
                         </div>
                         <div class="at-loginarea float-right">
                             <div class="at-detailsbtn-topbar">
-                                <a href="javascript:void(0);" class="at-btn at-btnactive">List with us</a>
-                                <a href="javascript:void(0);" class="at-btn at-btnactive at-btntwo" data-toggle="modal" data-target="#findproperty">Featured properties</a>
+                                <a href="{{ url('contact-us') }}" class="at-btn at-btnactive">List with us</a>
+                                <a href="{{ url('properties') }}" class="at-btn at-btnactive at-btntwo">Our properties</a>
                             </div>
                         </div>
                     </div>
@@ -35,16 +35,19 @@
                                         <a href="{{ url('/') }}">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('about') }}">About</a>
+                                        <a href="{{ url('about-us') }}">About</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ url('properties') }}">Properties</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="{{ url('new-developments') }}">New developments</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="{{ url('blog') }}">Blog</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('about') }}">Contact us</a>
+                                        <a href="{{ url('contact-us') }}">Contact us</a>
                                     </li>
                                 </ul>
                             </div>

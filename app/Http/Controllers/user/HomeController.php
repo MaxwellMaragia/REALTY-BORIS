@@ -72,9 +72,9 @@ class HomeController extends Controller
 
     public function about(){
         $seo = seo::where('page','about')->first();
-        $testimonials = testimonials::where('status','1')->get();
-        $members = team_member::where('status','1')->get();
-        return view('user.about',compact('seo','members','testimonials'));
+        $about_image = settings::where('name','about_image')->first();
+        $about_text = settings::where('name','about_text')->first();
+        return view('user.about',compact('seo','about_image','about_text'));
     }
 
     public function post(post $post){
@@ -101,10 +101,24 @@ class HomeController extends Controller
     }
 
     public function properties(){
-        $properties = property::where('status',1)->whereNull('new_development')->paginate(6);
+        $properties = property::where('status',1)->whereNull('new_development')->paginate(4);
         $seo = seo::where('page','properties')->first();
         $locations = location::all();
         return view('user.properties',compact('properties','locations','seo'));
+    }
+
+    public function developments(){
+        $properties = property::where('status',1)->where('new_development',1)->paginate(4);
+        $seo = seo::where('page','properties')->first();
+        return view('user.developments',compact('properties','seo'));
+    }
+
+    public function location(location $location){
+        $selected_location = $location;
+        $properties = $location->properties()->paginate(6);
+        $seo = seo::where('page','properties')->first();
+        $locations = location::all();
+        return view('user.location',compact('properties','locations','seo','selected_location'));
     }
 
     public function buy(){

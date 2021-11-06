@@ -58,7 +58,7 @@
                                     </td>
 
                                     <td>
-                                        <strong>{{ $property->location }}</strong>
+                                        <strong>{{ $property->property_location->name }}</strong>
                                     </td>
                                     <td>{{ $property->price }}</td>
                                     <td>{{ $property->bedroom }}</td>
