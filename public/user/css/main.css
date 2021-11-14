@@ -2695,8 +2695,10 @@ button.at-btn:focus{outline: none;}
 .at-headervtwo .at-logo{padding: 25px 0;}
 .at-headervtwo .at-navigation > ul > li > a{
 	color: #fff;
-	padding: 31px 14px;
+	padding: 31px 20px;
+    text-transform: uppercase;
 }
+
 .at-headervtwo .at-loginarea{
 	margin-left:20px;
 	padding-left:17px;

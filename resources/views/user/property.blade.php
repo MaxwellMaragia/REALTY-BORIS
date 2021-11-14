@@ -55,7 +55,7 @@
         <div class="at-homeslider">
             <div id="at-homeslidervone" class="at-homeslidervone owl-carousel">
                 @foreach($images as $image)
-                    <figure class="item"><img src="{{ Storage::url($image) }}" alt="slider img"></figure>
+                    <figure class="item" ><img src="{{ Storage::url($image) }}" alt="slider img" title="scroll left or right for next image"></figure>
                 @endforeach
             </div>
             <div id="at-homeslider-thumbnail" class="at-homeslider-thumbnail owl-carousel">
@@ -64,7 +64,7 @@
         </div>
 
     </div>
-    <div class="at-haslayout at-propertybannerholder">
+    <div class="at-haslayout at-propertybannerholder" style="margin-top:50px;">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-12">
@@ -108,26 +108,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="carousel hidden-md hidden-lg">
-            @foreach($images as $image)
-            <div><img src="{{ Storage::url($image) }}" alt="img description"></div>
-            @endforeach
-        </div>
-
-        <div id="at-propertysilder" class="at-propertysilder owl-carousel hidden-sm hidden-xs">
-            @foreach($images as $image)
-                <div class="item">
-                    <div class="at-propertysilder-img at-propertysilder-mtr">
-                        <figure>
-                            <a href="{{ Storage::url($image) }}" data-rel="prettyPhoto[gallery]">
-                                <img src="{{ Storage::url($image) }}" alt="img description">
-                            </a>
-                        </figure>
-                    </div>
-                </div>
-            @endforeach
         </div>
     </div>
     <!-- Home Slider End -->

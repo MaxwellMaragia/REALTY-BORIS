@@ -79,8 +79,6 @@
                 display: none !important;
             }
         }
-
-
     </style>
 @endsection
 
@@ -133,8 +131,8 @@
                 <div class="at-category-gallery at-haslayout" id="featured-properties">
                     <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs hidden-sm hidden-xs" style="margin-top:1.5px;">
                         <div class="at-sectionhead">
-                            <div class="at-sectiontitle" style="text-align: right;padding-right: 100px;padding-top: 100px;">
-                                <h2 style="font-size:80px;letter-spacing: -5px;color: #018038;">FEATURED</h2>
+                            <div class="at-sectiontitle" style="text-align: right;padding-right: 100px;padding-top: 50px;">
+                                <h2 style="font-size:75px;letter-spacing: -5px;color: #018038;">FEATURED</h2>
                                 <h2 style="font-size: 30px;">PROPERTIES</h2><br><br>
                                 <a href="{{ url('properties') }}" id="viewmore">View all properties +</a>
                             </div>
@@ -191,10 +189,10 @@
                 </div><!-- end row-->
             </div><!-- end container -->
         </section>
-
+        <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="100%">
         <!-- Top Categories Start -->
         <section class="at-haslayout at-main-section at-sectionbg">
-            <div class="containr">
+            <div class="container">
                 <div class="row justify-content-center">
                     <div class="at-category-gallery at-haslayout">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left" >

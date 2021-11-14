@@ -21,9 +21,6 @@
                                         <a href="{{ url('properties') }}">Properties</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('new-developments') }}">New developments</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a href="{{ url('blog') }}">Blog</a>
                                     </li>
                                     <li class="nav-item">

@@ -43,6 +43,7 @@ class HomeController extends Controller
         View::share('address', settings::where('name','address')->first());
         View::share('footer_text', settings::where('name','footer_text')->first());
         View::share('map', settings::where('name','map')->first());
+        View::share('about_image', settings::where('name','about_image')->first());
         View::share('locations', location::all());
     }
 
