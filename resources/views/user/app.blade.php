@@ -48,13 +48,13 @@
 @section('facebook-comments')
 @show
 <!-- start header -->
-@if((Request::path() == '/'))
-    @include('user/layouts/navhome')
-@else
-    @include('user/layouts/nav')
-@endif
+{{--@if((Request::path() == '/'))--}}
+{{--    @include('user/layouts/navhome')--}}
+{{--@else--}}
+{{--    @include('user/layouts/navhome')--}}
+{{--@endif--}}
 <!-- end header -->
-
+    @include('user/layouts/navhome')
 @section('main-content')
 @show
 

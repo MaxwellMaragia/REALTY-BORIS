@@ -33,6 +33,53 @@
             padding: 10px 0 20px;
             font-size: 17px;
         }
+        .tr-trip-imgs{
+            margin-right: -28px;
+
+        }
+        #at-haslayout{
+            padding-left:10px ;
+        }
+        #featured-properties{
+            margin-top:-80px;
+        }
+        #viewmore{
+            border:1px solid #018038;
+            color: #018038;
+            padding: 10px 30px;
+            margin-top:130px;
+        }
+        #viewmore:hover{
+            background-color: #018038;
+            color: #FFFFFF;
+        }
+        @media (max-width: 767px) {
+            .hidden-xs {
+                display: none !important;
+            }
+            #featured-properties{
+                margin-top:0px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .hidden-sm {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .hidden-md {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hidden-lg {
+                display: none !important;
+            }
+        }
+
 
     </style>
 @endsection
@@ -71,23 +118,30 @@
 
     </div>
     <!-- Home Slider End -->
-    <!-- Main Start -->
-    <main id="at-main" class="at-main at-haslayout">
-        <!-- Recommended Section Start -->
-        <section class="at-haslayout at-main-section at-sectionbg">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-sm-12 col-md-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2">
+    <!-- Recommended Section Start -->
+    <section class="at-haslayout at-main-section at-sectionbg" id="at-haslayout">
+        <div class="continer">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-12 col-md-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2 hidden-lg hidden-md">
+                    <div class="at-sectionhead">
+                        <div class="at-sectiontitle">
+                            <h2>Featured properties</h2>
+                            <span>Preview our handpicked properties</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="at-category-gallery at-haslayout" id="featured-properties">
+                    <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs hidden-sm hidden-xs" style="margin-top:1.5px;">
                         <div class="at-sectionhead">
-                            <div class="at-sectiontitle">
-                                <h2>Featured properties</h2>
-                                <span>Preview our handpicked properties</span>
+                            <div class="at-sectiontitle" style="text-align: right;padding-right: 100px;padding-top: 100px;">
+                                <h2 style="font-size:80px;letter-spacing: -5px;color: #018038;">FEATURED</h2>
+                                <h2 style="font-size: 30px;">PROPERTIES</h2><br><br>
+                                <a href="{{ url('properties') }}" id="viewmore">View all properties +</a>
                             </div>
                         </div>
                     </div>
-                    <div class="at-category-gallery at-haslayout">
-                        @foreach($featured_properties as $featured)
-                        <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs" >
+                    @foreach($featured_properties as $featured)
+                        <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs" style="margin-top:1.5px;">
                             <figure>
                                 <a href="{{ route('property',$featured->id) }}">
                                     <img src="{{ Storage::url($featured->image) }}" alt="img description">
@@ -99,20 +153,22 @@
                                     </div>
                                 </figcaption>
                             </figure>
-
                         </div>
-                        @endforeach
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left at-btnarea">
-                            <a href="{{ url('properties') }}" class="at-btn">View All</a>
-                        </div>
+                    @endforeach
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left at-btnarea hidden-lg hidden-md">
+                        <a href="{{ url('properties') }}" class="at-btn">View All</a>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Recommended Section Start -->
+        </div>
+    </section>
+    <!-- Recommended Section Start -->
+    <!-- Main Start -->
+    <main id="at-main" class="at-main at-haslayout">
+
 
         <section id="about-me">
-            <div class="container">
+            <div class="contaner">
                 <div class="row">
                     <div class="col-md-12">
                         <div id="about-me-box">
@@ -138,7 +194,7 @@
 
         <!-- Top Categories Start -->
         <section class="at-haslayout at-main-section at-sectionbg">
-            <div class="container">
+            <div class="containr">
                 <div class="row justify-content-center">
                     <div class="at-category-gallery at-haslayout">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left" >
@@ -214,7 +270,7 @@
 
         <!-- Articles Start -->
         <section class="at-haslayout at-main-section">
-            <div class="container">
+            <div class="containr">
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-12 col-md-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2">
                         <div class="at-sectionhead">
@@ -263,6 +319,7 @@
 
     </main>
     <!-- Main End -->
+
 @endsection
 
 

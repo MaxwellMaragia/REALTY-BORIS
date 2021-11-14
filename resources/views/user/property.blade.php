@@ -51,6 +51,19 @@
 {{--end additional css--}}
 @section('main-content')
     <!-- Inner Banner Start -->
+    <div id="at-homeslider-holder" class="at-homeslider-holder at-haslayout">
+        <div class="at-homeslider">
+            <div id="at-homeslidervone" class="at-homeslidervone owl-carousel">
+                @foreach($images as $image)
+                    <figure class="item"><img src="{{ Storage::url($image) }}" alt="slider img"></figure>
+                @endforeach
+            </div>
+            <div id="at-homeslider-thumbnail" class="at-homeslider-thumbnail owl-carousel">
+            </div>
+
+        </div>
+
+    </div>
     <div class="at-haslayout at-propertybannerholder">
         <div class="container">
             <div class="row">
@@ -176,11 +189,24 @@
     </main>
     <!-- Main End -->
 @section('additional-js')
-
-    <script src="{{ asset('user/js/slick.js') }}"></script>
     <script>
-        $(document).ready(function () {
-            $('.carousel').slick();
+        $(document).ready(function() {
+
+            $("#at-homeslidervone").owlCarousel({
+
+                navigation : true, // Show next and prev buttons
+
+                slideSpeed : 300,
+                paginationSpeed : 400,
+
+                items : 1,
+                itemsDesktop : false,
+                itemsDesktopSmall : false,
+                itemsTablet: false,
+                itemsMobile : false
+
+            });
+
         });
     </script>
 @endsection

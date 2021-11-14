@@ -1929,17 +1929,7 @@ button.at-btn:focus{outline: none;}
 	font-size: 36px;
 	line-height: 1em;
 }
-.at-sectiontitle::after{
-	left:50%;
-	bottom: 0;
-	content: '';
-	width: 30px;
-	height: 4px;
-	margin-left:-15px;
-	border-radius: 2px;
-	position: absolute;
-	background: var(--themecolor);
-}
+
 .at-sectiontitle span{
 	font-size: 18px;
 	display: block;
