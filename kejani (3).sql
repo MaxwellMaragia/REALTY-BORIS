@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2021 at 04:41 PM
+-- Generation Time: Nov 25, 2021 at 11:05 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -29,16 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admins` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255)  NOT NULL,
+  `email` varchar(255)  NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255)  NOT NULL,
+  `phone` varchar(255)  NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100)  DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `admins`
@@ -55,11 +55,11 @@ INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `p
 
 CREATE TABLE `banners` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `media` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `media` varchar(255)  NOT NULL,
   `status` tinyint(1) DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `banners`
@@ -78,11 +78,11 @@ INSERT INTO `banners` (`id`, `media`, `status`, `created_at`, `updated_at`) VALU
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255)  NOT NULL,
+  `slug` varchar(255)  NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `categories`
@@ -104,7 +104,7 @@ CREATE TABLE `category_posts` (
   `category_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `category_posts`
@@ -124,14 +124,14 @@ INSERT INTO `category_posts` (`post_id`, `category_id`, `created_at`, `updated_a
 
 CREATE TABLE `enquiries` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mobile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255)  NOT NULL,
+  `email` varchar(255)  NOT NULL,
+  `mobile` varchar(255)  DEFAULT NULL,
+  `subject` text  NOT NULL,
+  `message` text  NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 -- --------------------------------------------------------
 
@@ -141,12 +141,12 @@ CREATE TABLE `enquiries` (
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text  NOT NULL,
+  `queue` text  NOT NULL,
+  `payload` longtext  NOT NULL,
+  `exception` longtext  NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 -- --------------------------------------------------------
 
@@ -156,10 +156,10 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `features` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255)  NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `features`
@@ -178,40 +178,14 @@ INSERT INTO `features` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `locations`
---
-
-CREATE TABLE `locations` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `locations`
---
-
-INSERT INTO `locations` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Lavington', 'lavington', '2021-10-30 02:26:36', '2021-10-30 02:28:53'),
-(2, 'Kileleshwa', 'kileleshwa', '2021-10-30 02:26:42', '2021-10-30 02:26:42'),
-(3, 'Langata', 'langata', '2021-10-30 02:26:51', '2021-10-30 02:26:51'),
-(4, 'Karen', 'karen', '2021-10-30 02:26:57', '2021-10-30 02:26:57'),
-(5, 'Dagoretti', 'dagoretti', '2021-10-30 02:27:04', '2021-10-30 02:27:04'),
-(6, 'Kilimani', 'kilimani', '2021-10-30 06:12:33', '2021-10-30 06:12:33');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255)  NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `migrations`
@@ -247,10 +221,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255)  NOT NULL,
+  `token` varchar(255)  NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `password_resets`
@@ -267,25 +241,25 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subtitle` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keywords` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(256)  NOT NULL,
+  `subtitle` longtext  NOT NULL,
+  `slug` varchar(100)  NOT NULL,
+  `body` longtext  NOT NULL,
+  `keywords` longtext  NOT NULL,
   `status` tinyint(1) DEFAULT 0,
   `featured` tinyint(1) DEFAULT 0,
   `posted_by` int(11) DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `feature_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255)  DEFAULT NULL,
+  `feature_image` varchar(255)  DEFAULT NULL,
   `likes` int(11) DEFAULT 0,
   `dislikes` int(11) DEFAULT 0,
-  `meta_author` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_author` varchar(255)  DEFAULT NULL,
+  `meta_title` varchar(255)  DEFAULT NULL,
+  `meta_description` varchar(255)  DEFAULT NULL,
+  `meta_keywords` varchar(255)  DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `posts`
@@ -307,7 +281,7 @@ CREATE TABLE `post_tags` (
   `tag_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 -- --------------------------------------------------------
 
@@ -317,37 +291,38 @@ CREATE TABLE `post_tags` (
 
 CREATE TABLE `properties` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `location` bigint(20) UNSIGNED NOT NULL,
-  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `size` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255)  NOT NULL,
+  `slug` varchar(255)  NOT NULL,
+  `price` varchar(255)  NOT NULL,
+  `size` varchar(255)  NOT NULL,
   `bedroom` int(11) DEFAULT 0,
   `bathroom` int(11) DEFAULT 0,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255)  DEFAULT NULL,
   `featured` tinyint(1) DEFAULT 0,
   `status` tinyint(1) DEFAULT 0,
   `new_development` tinyint(1) DEFAULT 0,
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `completion_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext  NOT NULL,
+  `completion_date` varchar(255)  DEFAULT NULL,
+  `meta_title` varchar(255)  DEFAULT NULL,
+  `meta_description` varchar(255)  DEFAULT NULL,
+  `meta_keywords` varchar(255)  DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `properties`
 --
 
-INSERT INTO `properties` (`id`, `location`, `price`, `size`, `bedroom`, `bathroom`, `image`, `featured`, `status`, `new_development`, `description`, `completion_date`, `meta_title`, `meta_description`, `meta_keywords`, `created_at`, `updated_at`) VALUES
-(2, 6, '9,500,000', '100 metres squared', 2, 3, 'public/properties/2/RjZ8mnxBHb9afY88Fp6SgGGZH20YUSYDRAVIiiV9.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILIMANI 2 BEDROOM 9.5M', 'KILIMANI 2 BEDROOM 9.5M', 'KILIMANI 2 BEDROOM 9.5M', '2021-10-30 06:15:04', '2021-11-04 05:04:32'),
-(3, 2, '9,000,000', '200 metres squared', 1, 2, 'public/properties/3/ltwogsBFLYp1bbixoI6cu0YHKzxevmUkxgWQZKSK.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA ONE BEDROOM 9M', 'KILELESHWA ONE BEDROOM 9M', 'KILELESHWA ONE BEDROOM 9M', '2021-10-30 06:18:52', '2021-11-04 04:56:20'),
-(4, 2, '11,000,000', '200 metres squared', 2, 3, 'public/properties/4/Rj7QMZV1WLhidEaJ7g8ejFm0g38COXWDPYvr1Mtb.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA 2 BEDROOM 11M', 'KILELESHWA 2 BEDROOM 11M', 'KILELESHWA 2 BEDROOM 11M', '2021-10-30 06:20:20', '2021-11-04 04:58:58'),
-(5, 2, '23,000,000', '220 metres squared', 3, 5, 'public/properties/5/MCIR8qPVIv4eQjeVGiogQ9B0jQKXnIZ21VK4k96s.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA 3 BEDROOM SQ 23M', 'KILELESHWA 3 BEDROOM SQ 23M', 'KILELESHWA 3 BEDROOM SQ 23M', '2021-10-30 06:21:39', '2021-11-04 05:00:30'),
-(6, 6, '23,500,000', '200 metres squared', 3, 4, 'public/properties/6/fL3lu1aCimu20M1ymjbbJLHQ3l27573BYm0zpmsJ.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILIMANI 3 BEDROOM SQ', 'KILIMANI 3 BEDROOM SQ', 'KILIMANI 3 BEDROOM SQ', '2021-10-30 06:23:21', '2021-11-04 05:07:51'),
-(7, 1, '12,000,000', '100 metres squared', 3, 5, 'public/properties/7/k1aq26eVgPJbWBufsdQuUx8orbejb1qOJziif0E2.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'LAVINGTON 3 BEDROOM 12M', NULL, NULL, '2021-10-30 06:27:07', '2021-11-04 05:06:04'),
-(8, 1, '21,500,000', '200 metres squared', 4, 4, 'public/properties/8/Ad8oJYIoI7BeXN9uFscYtbp65fVPfarCIvfM8KzQ.jpg', NULL, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'LAVINGTON 4 BEDROOM 21.5M', 'LAVINGTON 4 BEDROOM 21.5M', 'LAVINGTON 4 BEDROOM 21.5M', '2021-11-04 11:27:19', '2021-11-04 11:41:47'),
-(9, 5, '18,000,000', '200 metres squared', 3, 3, 'public/properties/9/X2YF2n6slGADeMfUuguiJSIcGd21VtdJg6FFqAsw.jpg', NULL, 1, 1, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', '2021-12-24', 'New development - Dagoretti', NULL, NULL, '2021-11-04 11:41:28', '2021-11-04 11:41:28');
+INSERT INTO `properties` (`id`, `title`, `slug`, `price`, `size`, `bedroom`, `bathroom`, `image`, `featured`, `status`, `new_development`, `description`, `completion_date`, `meta_title`, `meta_description`, `meta_keywords`, `created_at`, `updated_at`) VALUES
+(2, 'KILIMANI 2 BEDROOM 9.5M', 'kilimani-2-bedroom-9.5m', '9,500,000', '100 metres squared', 2, 3, 'public/properties/2/RjZ8mnxBHb9afY88Fp6SgGGZH20YUSYDRAVIiiV9.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILIMANI 2 BEDROOM 9.5M', 'KILIMANI 2 BEDROOM 9.5M', 'KILIMANI 2 BEDROOM 9.5M', '2021-10-30 06:15:04', '2021-11-04 05:04:32'),
+(3, 'KILELESHWA ONE BEDROOM 9M', 'kileleshwa-one-bedroom-9m', '9,000,000', '200 metres squared', 1, 2, 'public/properties/3/ltwogsBFLYp1bbixoI6cu0YHKzxevmUkxgWQZKSK.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA ONE BEDROOM 9M', 'KILELESHWA ONE BEDROOM 9M', 'KILELESHWA ONE BEDROOM 9M', '2021-10-30 06:18:52', '2021-11-04 04:56:20'),
+(4, 'KILELESHWA 2 BEDROOM 11M', 'kileleshwa-2-bedroom-11m', '11,000,000', '200 metres squared', 2, 3, 'public/properties/4/Rj7QMZV1WLhidEaJ7g8ejFm0g38COXWDPYvr1Mtb.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA 2 BEDROOM 11M', 'KILELESHWA 2 BEDROOM 11M', 'KILELESHWA 2 BEDROOM 11M', '2021-10-30 06:20:20', '2021-11-04 04:58:58'),
+(5, 'KILELESHWA 3 BEDROOM SQ 23M', 'kileleshwa-3-bedroom-sq-23m', '23,000,000', '220 metres squared', 3, 5, 'public/properties/5/MCIR8qPVIv4eQjeVGiogQ9B0jQKXnIZ21VK4k96s.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA 3 BEDROOM SQ 23M', 'KILELESHWA 3 BEDROOM SQ 23M', 'KILELESHWA 3 BEDROOM SQ 23M', '2021-10-30 06:21:39', '2021-11-04 05:00:30'),
+(6, 'KILIMANI 3 BEDROOM SQ', 'kilimani-3-bedroom-sq', '23,500,000', '200 metres squared', 3, 4, 'public/properties/6/fL3lu1aCimu20M1ymjbbJLHQ3l27573BYm0zpmsJ.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILIMANI 3 BEDROOM SQ', 'KILIMANI 3 BEDROOM SQ', 'KILIMANI 3 BEDROOM SQ', '2021-10-30 06:23:21', '2021-11-04 05:07:51'),
+(7, 'LAVINGTON 3 BEDROOM 12M', 'lavington-3-bedroom-12m', '12,000,000', '100 metres squared', 3, 5, 'public/properties/7/k1aq26eVgPJbWBufsdQuUx8orbejb1qOJziif0E2.jpg', NULL, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'LAVINGTON 3 BEDROOM 12M', NULL, NULL, '2021-10-30 06:27:07', '2021-11-14 03:41:05'),
+(8, 'LAVINGTON 4 BEDROOM 21.5M', 'lavington-4-bedroom-21.5m', '21,500,000', '200 metres squared', 4, 4, 'public/properties/8/Ad8oJYIoI7BeXN9uFscYtbp65fVPfarCIvfM8KzQ.jpg', NULL, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'LAVINGTON 4 BEDROOM 21.5M', 'LAVINGTON 4 BEDROOM 21.5M', 'LAVINGTON 4 BEDROOM 21.5M', '2021-11-04 11:27:19', '2021-11-04 11:41:47'),
+(9, 'New development - Dagoretti', 'new-development---dagoretti', '18,000,000', '200 metres squared', 3, 3, 'public/properties/9/X2YF2n6slGADeMfUuguiJSIcGd21VtdJg6FFqAsw.jpg', NULL, 1, 1, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', '2021-12-24', 'New development - Dagoretti', NULL, NULL, '2021-11-04 11:41:28', '2021-11-04 11:41:28');
 
 -- --------------------------------------------------------
 
@@ -360,7 +335,7 @@ CREATE TABLE `property_features` (
   `feature_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `property_features`
@@ -403,36 +378,23 @@ INSERT INTO `property_features` (`property_id`, `feature_id`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
--- Table structure for table `property_types`
---
-
-CREATE TABLE `property_types` (
-  `property_id` bigint(20) UNSIGNED NOT NULL,
-  `type_id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `seos`
 --
 
 CREATE TABLE `seos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `page` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `page_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `author` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `css` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `language` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `revisit_after` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `page` varchar(255)  NOT NULL,
+  `page_title` varchar(255)  NOT NULL,
+  `author` varchar(255)  DEFAULT NULL,
+  `title` varchar(255)  DEFAULT NULL,
+  `description` varchar(255)  DEFAULT NULL,
+  `css` longtext  DEFAULT NULL,
+  `keywords` varchar(255)  DEFAULT NULL,
+  `language` varchar(255)  DEFAULT NULL,
+  `revisit_after` varchar(255)  DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `seos`
@@ -453,20 +415,20 @@ INSERT INTO `seos` (`id`, `page`, `page_title`, `author`, `title`, `description`
 
 CREATE TABLE `services` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `short_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `media` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255)  NOT NULL,
+  `slug` varchar(255)  NOT NULL,
+  `short_description` varchar(255)  NOT NULL,
+  `description` longtext  NOT NULL,
+  `media` varchar(255)  NOT NULL,
+  `icon` varchar(255)  DEFAULT NULL,
   `status` tinyint(1) DEFAULT 0,
-  `meta_author` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_author` varchar(255)  DEFAULT NULL,
+  `meta_title` varchar(255)  DEFAULT NULL,
+  `meta_description` varchar(255)  DEFAULT NULL,
+  `meta_keywords` varchar(255)  DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 -- --------------------------------------------------------
 
@@ -476,19 +438,19 @@ CREATE TABLE `services` (
 
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255)  NOT NULL,
+  `value` longtext  NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'logo_light', 'public/files/settings/hEolmVGwRNYXmMfz4Fyhi7zvG7dv3GcZAWQGsXSQ.png', NULL, '2021-11-01 05:04:10'),
-(2, 'logo_dark', 'public/files/settings/LuNvRVvc5Tw1Rf2OZ4sdVseXiQf1NMEykUsfIx3s.png', NULL, '2021-10-29 14:14:28'),
+(1, 'logo_light', 'public/files/settings/0K56a8j04VAnvOirk90Qzr50FYYvZbON5rJ7Tjeh.png', NULL, '2021-11-19 11:38:04'),
+(2, 'logo_dark', 'public/files/settings/ygZMer5SAF7wjh4kL1jrmdmFJXgqAXKQUyh8Ykbl.png', NULL, '2021-11-17 07:29:58'),
 (3, 'favicon', 'public/files/settings/67Dukxp711VmZGXjgVQ7LCdC9wf0g9PkNvQGMpQQ.png', NULL, '2021-10-18 13:12:29'),
 (4, 'email', 'margiewambui11@gmail.com', NULL, '2021-10-18 13:12:29'),
 (5, 'mobile', '0707338839', NULL, '2021-10-18 13:12:29'),
@@ -510,11 +472,11 @@ INSERT INTO `settings` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUE
 
 CREATE TABLE `tags` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255)  NOT NULL,
+  `slug` varchar(255)  NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `tags`
@@ -536,17 +498,17 @@ INSERT INTO `tags` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `team_members` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `short_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '#',
-  `linkedin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '#',
-  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '#',
+  `name` varchar(255)  NOT NULL,
+  `role` varchar(255)  NOT NULL,
+  `image` varchar(255)  NOT NULL,
+  `short_description` varchar(255)  NOT NULL,
+  `website` varchar(255)  DEFAULT '#',
+  `linkedin` varchar(255)  DEFAULT '#',
+  `facebook` varchar(255)  DEFAULT '#',
   `status` tinyint(1) DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 -- --------------------------------------------------------
 
@@ -556,14 +518,14 @@ CREATE TABLE `team_members` (
 
 CREATE TABLE `testimonials` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255)  NOT NULL,
+  `role` varchar(255)  NOT NULL,
+  `avatar` varchar(255)  DEFAULT NULL,
+  `content` varchar(255)  NOT NULL,
   `status` tinyint(1) DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `testimonials`
@@ -582,14 +544,14 @@ INSERT INTO `testimonials` (`id`, `name`, `role`, `avatar`, `content`, `status`,
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255)  NOT NULL,
+  `email` varchar(255)  NOT NULL,
+  `password` varchar(255)  NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100)  DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB  ;
 
 --
 -- Dumping data for table `users`
@@ -648,13 +610,6 @@ ALTER TABLE `features`
   ADD UNIQUE KEY `features_name_unique` (`name`);
 
 --
--- Indexes for table `locations`
---
-ALTER TABLE `locations`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `types_name_unique` (`name`);
-
---
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -684,7 +639,7 @@ ALTER TABLE `post_tags`
 --
 ALTER TABLE `properties`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `location` (`location`);
+  ADD UNIQUE KEY `title` (`title`);
 
 --
 -- Indexes for table `property_features`
@@ -692,13 +647,6 @@ ALTER TABLE `properties`
 ALTER TABLE `property_features`
   ADD KEY `property_features_property_id_index` (`property_id`),
   ADD KEY `property_features_feature_id_index` (`feature_id`);
-
---
--- Indexes for table `property_types`
---
-ALTER TABLE `property_types`
-  ADD KEY `property_types_property_id_index` (`property_id`),
-  ADD KEY `property_types_type_id_index` (`type_id`);
 
 --
 -- Indexes for table `seos`
@@ -784,12 +732,6 @@ ALTER TABLE `features`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `locations`
---
-ALTER TABLE `locations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -866,22 +808,10 @@ ALTER TABLE `post_tags`
   ADD CONSTRAINT `post_tags_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `properties`
---
-ALTER TABLE `properties`
-  ADD CONSTRAINT `properties_ibfk_1` FOREIGN KEY (`location`) REFERENCES `locations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `property_features`
 --
 ALTER TABLE `property_features`
   ADD CONSTRAINT `property_features_property_id_foreign` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `property_types`
---
-ALTER TABLE `property_types`
-  ADD CONSTRAINT `property_types_property_id_foreign` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,7 +7,7 @@
         <span class="logo-lg"><b>REALTY BORIS</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" style="background-color:#018038;">
+    <nav class="navbar navbar-static-top" style="background-color:#0D5B33;">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>

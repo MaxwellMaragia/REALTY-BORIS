@@ -31,7 +31,7 @@
                             <thead>
                             <tr>
                                 <th>Image</th>
-                                <th>Location</th>
+                                <th>Title</th>
                                 <th>Price</th>
                                 <th>Bedrooms</th>
                                 <th>Bathrooms</th>
@@ -58,7 +58,7 @@
                                     </td>
 
                                     <td>
-                                        <strong>{{ $property->property_location->name }}</strong>
+                                        <strong>{{ $property->title }}</strong>
                                     </td>
                                     <td>{{ $property->price }}</td>
                                     <td>{{ $property->bedroom }}</td>
@@ -107,7 +107,7 @@
                             <tfoot>
                             <tr>
                                 <th>Image</th>
-                                <th>Location</th>
+                                <th>Title</th>
                                 <th>Price</th>
                                 <th>Bedrooms</th>
                                 <th>Bathrooms</th>

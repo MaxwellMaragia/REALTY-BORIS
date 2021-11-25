@@ -80,10 +80,7 @@
                                     @endif
                                 </div>
                                 <div class="at-username">
-                                    <h2>{{ $property->meta_title }}</h2>
-                                    <address><i
-                                            class="fa fa-location-arrow"></i>{{ $property->property_location->name }}
-                                    </address>
+                                    <h2>{{ $property->title }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +136,6 @@
                                         <h3>Property Details</h3>
                                     </div>
                                     <ul class="at-detailslisting">
-                                        <li><h4>Location</h4><span>{{ $property->property_location->name }}</span></li>
                                         <li><h4>Bedrooms</h4><span>{{ $property->bedroom }}</span></li>
                                         <li><h4>Bathrooms</h4><span>{{ $property->bathroom }}</span></li>
                                         <li><h4>Size</h4><span>{{ $property->size }}</span></li>

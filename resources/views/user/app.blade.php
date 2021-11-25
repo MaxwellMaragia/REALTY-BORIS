@@ -13,24 +13,23 @@
 <div class="sticky-container">
     <ul class="sticky">
         <li>
-            <img src="{{ asset('facebook-circle.png')}}" width="32" height="32">
-            <p><a href="{{ $facebook->value }}" target="_blank">Follow Us on<br>Facebook</a></p>
+            <p><a href="{{ $facebook->value }}" target="_blank"></a><img src="{{ asset('facebook-circle.png')}}" width="32" height="32"></p>
         </li>
         <li>
-            <img src="{{ asset('twitter-circle.png')}}" width="32" height="32">
-            <p><a href="{{ $twitter->value }}" target="_blank">Follow Us on<br>Twitter</a></p>
+
+            <p><a href="{{ $twitter->value }}" target="_blank"><img src="{{ asset('twitter-circle.png')}}" width="32" height="32"></a></p>
         </li>
         <li>
-            <img src="{{ asset('youtube-circle.png') }}" width="32" height="32">
-            <p><a href="{{ $youtube->value }}" target="_blank">Subscribe on<br>YouTube</a></p>
+
+            <p><a href="{{ $youtube->value }}" target="_blank"><img src="{{ asset('youtube-circle.png') }}" width="32" height="32"></a></p>
         </li>
         <li>
-            <img src="{{ asset('instagram-circle.png') }}" width="32" height="32">
-            <p><a href="{{ $instagram->value }}" target="_blank">Follow Us on<br>Instagram</a></p>
+
+            <p><a href="{{ $instagram->value }}" target="_blank"><img src="{{ asset('instagram-circle.png') }}" width="32" height="32"></a></p>
         </li>
         <li>
-            <img src="{{ asset('whatsapp-circle.png') }}" width="32" height="32">
-            <p><a href="https://wa.me/{{ $whatsapp->value }}" target="_blank">Message Us on<br>Whatsapp</a></p>
+
+            <p><a href="https://wa.me/{{ $whatsapp->value }}" target="_blank"><img src="{{ asset('whatsapp-circle.png') }}" width="32" height="32"></a></p>
         </li>
 
     </ul>

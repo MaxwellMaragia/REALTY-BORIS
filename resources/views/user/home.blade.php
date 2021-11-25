@@ -18,7 +18,7 @@
         #about-me-box {
             margin: 50px 0;
             background-color: #fff;
-            box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
+            /*box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);*/
             display: block;
             padding: 0 10px 0 0;
         }
@@ -27,7 +27,7 @@
             border-bottom: dotted 2px black;
             display: inline-block;
             margin: 20px 0 30px;
-            color: #018038;
+            color: #0D5B33;
         }
         #about-realty{
             padding: 10px 0 20px;
@@ -44,13 +44,13 @@
             margin-top:-80px;
         }
         #viewmore{
-            border:1px solid #018038;
-            color: #018038;
+            border:1px solid #0D5B33;
+            color: #0D5B33;
             padding: 10px 30px;
             margin-top:130px;
         }
         #viewmore:hover{
-            background-color: #018038;
+            background-color: #0D5B33;
             color: #FFFFFF;
         }
         @media (max-width: 767px) {
@@ -60,6 +60,12 @@
             #featured-properties{
                 margin-top:0px;
             }
+            .properties-container{
+                padding-left: 20px;
+                padding-right: 10px;
+            }
+          
+
         }
 
         @media (min-width: 768px) and (max-width: 991px) {
@@ -99,7 +105,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2">
                             <div class="at-slider-header">
-                                <img src="{{ Storage::url($logo_dark->value) }}" width="40%" >
+{{--                                <img src="{{ Storage::url($logo_dark->value) }}" width="40%" >--}}
                                 <div class="at-title">
                                     <h1><span>Find Exotic &amp; Affordable</span></h1>
                                 </div>
@@ -117,46 +123,35 @@
     </div>
     <!-- Home Slider End -->
     <!-- Recommended Section Start -->
-    <section class="at-haslayout at-main-section at-sectionbg" id="at-haslayout">
-        <div class="continer">
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-12 col-md-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2 hidden-lg hidden-md">
+    <section class="at-haslayout at-main-section at-sectionbg" id="at-haslayout" style="padding: 0px">
+        <div class="properties-container">
+            <div class="row justify-content-center" style="margin-left: -55px;">
+                <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center  tr-trip-imgs hidden-sm hidden-xs" style="margin-top:1.5px;">
                     <div class="at-sectionhead">
-                        <div class="at-sectiontitle">
-                            <h2>Featured properties</h2>
-                            <span>Preview our handpicked properties</span>
+                        <div class="at-sectiontitle" style="padding-top: 80px;">
+                            <h2 style="font-size:54px;letter-spacing: -4.5px;color: #018038;">Featured</h2>
+                            <h2 style="font-size: 30px;">Properties</h2><br>
+                            <a href="{{ url('properties') }}" id="viewmore">View all properties +</a>
                         </div>
                     </div>
                 </div>
-                <div class="at-category-gallery at-haslayout" id="featured-properties">
-                    <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs hidden-sm hidden-xs" style="margin-top:1.5px;">
-                        <div class="at-sectionhead">
-                            <div class="at-sectiontitle" style="text-align: right;padding-right: 100px;padding-top: 50px;">
-                                <h2 style="font-size:75px;letter-spacing: -5px;color: #018038;">FEATURED</h2>
-                                <h2 style="font-size: 30px;">PROPERTIES</h2><br><br>
-                                <a href="{{ url('properties') }}" id="viewmore">View all properties +</a>
-                            </div>
-                        </div>
+
+                @foreach($featured_properties as $featured)
+                    <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs home-property" style="margin-top:1.5px;">
+                        <figure>
+                            <a href="{{ route('property',$featured->slug) }}">
+                                <img src="{{ Storage::url($featured->image) }}" alt="img description">
+                            </a>
+                            <figcaption>
+                                <div class="at-trip-content">
+                                    <h3>{{ $featured->title }}</h3>
+                                    <h4>{{ $featured->price }} <span>(Ksh)</span></h4>
+                                </div>
+                            </figcaption>
+                        </figure>
                     </div>
-                    @foreach($featured_properties as $featured)
-                        <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs" style="margin-top:1.5px;">
-                            <figure>
-                                <a href="{{ route('property',$featured->id) }}">
-                                    <img src="{{ Storage::url($featured->image) }}" alt="img description">
-                                </a>
-                                <figcaption>
-                                    <div class="at-trip-content">
-                                        <h3>{{ $featured->meta_title }}</h3>
-                                        <h4>{{ $featured->price }} <span>(Ksh)</span></h4>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    @endforeach
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left at-btnarea hidden-lg hidden-md">
-                        <a href="{{ url('properties') }}" class="at-btn">View All</a>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -170,28 +165,36 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div id="about-me-box">
-                            <div class="row">
+                            <div class="row justify-content-center" STYLE="margin-top:-75px;background: #f7f8f9;">
                                 <div class="col-md-6 col-xs-12">
                                     <img class="max-width-xs" src="{{ asset('boris.jpg') }}" />
                                 </div><!-- end col-md-7 -->
                                 <div class="col-md-6 col-xs-12">
-                                    <div class="text-center"><h1>REALTY BORIS</h1></div>
+                                    <div class="text-center" style="padding-top: 90px;"><h1>Boris Yelstine</h1></div>
                                     <div class="container">
                                         <p id="about-realty">
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
                                             <br>more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                            <br>
+                                            <a href="{{ $youtube->value }}" target="_blank" class="at-btn at-btnactive text-center" style="margin-top:40px;">Watch My Youtube</a>
                                         </p>
                                     </div>
                                 </div><!-- end col-md-5-->
+                                <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="100%" >
+{{--                                <div class="col-12 col-md-12 col-lg-12 col-xl-11 text-center" style="">--}}
+{{--                                        <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="70%" >--}}
+
+{{--                                </div>--}}
+
                             </div><!--end row -->
                         </div><!-- end about-me-box -->
                     </div><!-- end col-md-12-->
                 </div><!-- end row-->
             </div><!-- end container -->
+
         </section>
-        <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="100%">
         <!-- Top Categories Start -->
-        <section class="at-haslayout at-main-section at-sectionbg">
+        <section class="at-haslayout at-main-section ">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="at-category-gallery at-haslayout">
@@ -271,14 +274,14 @@
             <div class="containr">
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-12 col-md-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2">
-                        <div class="at-sectionhead">
-                            <div class="at-sectiontitle">
+                        <div class="at-sectionhead" >
+                            <div class="at-sectiontitle" >
                                 <h2>Latest Articles &amp; Tips</h2>
                                 <span>Stay Updated With Blogs</span>
                             </div>
                         </div>
                     </div>
-                    <div class="at-articles">
+                    <div class="at-articles containe" style="padding-right: 10px;padding-left: 10px;">
                         @foreach($posts as $post)
                         <div class="col-12 col-md-6 col-lg-4 float-left">
                             <div class="at-article">
@@ -289,15 +292,6 @@
                                         @endif
                                 </figure>
                                 <div class="at-article-content">
-
-                                    <div class="at-featured-tags">
-                                        @foreach($post->categories as $category)
-                                            <a href="{{ route('category',$category->slug) }}">{{  $category->name }}</a></a>
-                                            @if( !$loop->last)
-                                                ,
-                                            @endif
-                                        @endforeach
-                                    </div>
                                     <div class="at-title">
                                         <h4>{{ $post->title }}</h4>
                                         <span>{{ $post->created_at->toFormattedDateString() }}</span>

@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
+                    <strong class="at-logo"><a href="{{ url('/') }}"><img src="{{ Storage::url($logo_light->value) }}" alt="company logo here"></a></strong>
                     <div class="at-rightarea">
                         <nav id="at-nav" class="at-nav navbar-expand-lg">
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,6 +11,7 @@
                             </button>
                             <div class="collapse navbar-collapse at-navigation" id="navbarNav">
                                 <ul class="navbar-nav">
+
                                     <li class="nav-item">
                                         <a href="{{ url('/') }}">Home</a>
                                     </li>

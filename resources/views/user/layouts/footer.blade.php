@@ -6,18 +6,10 @@
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
                     <div class="at-fwidget">
                         <div class="at-fwidget-titile">
-                            <h3>Quick links</h3>
+                            <h3>REALTY BORIS</h3>
                         </div>
                         <div class="at-fwidget-content">
-                            <ul>
-                                <li><a href="{{ url('home') }}">Home</a></li>
-                                <li><a href="{{ url('about-us') }}">About</a></li>
-                                <li><a href="{{ url('properties') }}">Properties</a></li>
-                                <li><a href="{{ url('blog') }}">Blog</a></li>
-                                <li><a href="{{ url('contact-us') }}">Contact us</a></li>
-                                <li><a href="{{ url('new-developments') }}">New developments</a></li>
-
-                            </ul>
+                            <img src="{{ Storage::url($logo_light->value) }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -28,9 +20,12 @@
                         </div>
                         <div class="at-fwidget-content">
                             <ul>
-                                @foreach($locations as $location)
-                                <li><a href="{{ route('location',$location) }}">{{ $location->name }}</a></li>
-                                @endforeach
+                                <li><a href="{{ url('home') }}">Home</a></li>
+                                <li><a href="{{ url('about-us') }}">About</a></li>
+                                <li><a href="{{ url('properties') }}">Properties</a></li>
+                                <li><a href="{{ url('blog') }}">Blog</a></li>
+                                <li><a href="{{ url('contact-us') }}">Contact us</a></li>
+                                <li><a href="{{ url('new-developments') }}">New developments</a></li>
                             </ul>
                         </div>
                     </div>
@@ -59,8 +54,7 @@
                 <div class="col-12 col-md-12">
                     <div class="at-copyrights-holder">
                         <div class="at-flogoarea">
-                            <strong class="at-flogo"><a href="{{ url('/') }}"><img src="{{ Storage::url($logo_light->value) }}" alt="footer logo"></a></strong>
-                            <p class="at-copyrights">Copyrights © <script>document.write(new Date().getFullYear());</script> REALTY BORIS All Rights Reserved.</p>
+                            <p class="at-copyrights">Copyrights © <script>document.write(new Date().getFullYear());</script> REALTY BORIS.</p>
                         </div>
                     </div>
                 </div>

@@ -25,23 +25,23 @@ class PropertyController extends Controller
 
     public function create()
     {
-        $locations = location::all();
         $features = feature::all();
-        return view('admin.property.create',compact('locations','features'));
+        return view('admin.property.create',compact('features'));
     }
 
     public function store(Request $request)
     {
         //
         $this->validate($request,[
-            'location' => 'required',
+            'title' => 'required|unique:properties',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'description'=>'required',
         ]);
 
 
         $data = array(
-            'location'=>$request->location,
+            'title'=>$request->title,
+            'slug'=>str::slug($request->title),
             'price'=>$request->price,
             'size'=>$request->size,
             'bedroom'=>$request->bedroom,
@@ -83,16 +83,15 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $property = property::where('id', $id)->first();
-        $locations = location::all();
         $features = feature::all();
-        return view('admin.property.edit', compact('property','locations','features'));
+        return view('admin.property.edit', compact('property','features'));
     }
 
     public function update(Request $request, $id)
     {
         //
         $this->validate($request,[
-            'location' => 'required',
+            'title' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'description'=>'required',
         ]);
@@ -117,7 +116,8 @@ class PropertyController extends Controller
         }
 
         $data = array(
-            'location'=>$request->location,
+            'title'=>$request->title,
+            'slug'=>str::slug($request->title),
             'price'=>$request->price,
             'size'=>$request->size,
             'image'=>$image,

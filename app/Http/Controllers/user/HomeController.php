@@ -44,7 +44,7 @@ class HomeController extends Controller
         View::share('footer_text', settings::where('name','footer_text')->first());
         View::share('map', settings::where('name','map')->first());
         View::share('about_image', settings::where('name','about_image')->first());
-        View::share('locations', location::all());
+
     }
 
 
@@ -92,24 +92,22 @@ class HomeController extends Controller
         return view('user.service',compact('service'));
     }
 
-    public function property($id)
+    public function property(property $property)
     {
-        $path = "properties/".$id."/carousel";
+        $path = "properties/".$property->id."/carousel";
         $images = Storage::disk('public')->files($path);
         //$images = \File::allFiles(public_path("properties/".$property->name."/carousel"));
-        $property = property::find($id);
         return view('user.property',compact('property','images'));
     }
 
     public function properties(){
-        $properties = property::where('status',1)->whereNull('new_development')->paginate(4);
+        $properties = property::where('status',1)->whereNull('new_development')->paginate(6);
         $seo = seo::where('page','properties')->first();
-        $locations = location::all();
-        return view('user.properties',compact('properties','locations','seo'));
+        return view('user.properties',compact('properties','seo'));
     }
 
     public function developments(){
-        $properties = property::where('status',1)->where('new_development',1)->paginate(4);
+        $properties = property::where('status',1)->where('new_development',1)->paginate(6);
         $seo = seo::where('page','properties')->first();
         return view('user.developments',compact('properties','seo'));
     }

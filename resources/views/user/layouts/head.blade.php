@@ -39,7 +39,8 @@
     }
     .sticky li{
         list-style-type:none;
-        background-color:#fff;
+        /*background-color:#fff;*/
+        background: transparent;
         color:#efefef;
         height:43px;
         padding:0px;
@@ -51,7 +52,7 @@
         cursor:pointer;
     }
     .sticky li:hover{
-        margin-left:-115px;
+        margin-left:-10px;
     }
     .sticky li img{
         float:left;

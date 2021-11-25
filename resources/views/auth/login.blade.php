@@ -38,24 +38,13 @@
         @include('includes.messages')
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
-            <div class="form-group has-feedback">
+            <div class="form-group">
                 <input type="email" class="form-control" placeholder="Email" name="email" required="required">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
-            <div class="form-group has-feedback">
+            <div class="form-group">
                 <input type="password" class="form-control" placeholder="Password" name="password" required="required">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6 offset-md-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                        <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
-                        </label>
-                    </div>
-                </div>
             </div>
             <div class="row">
 
@@ -70,7 +59,7 @@
 
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat" style="background-color:#018038;">Sign In</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat" style="background-color:#0D5B33;">Sign In</button>
                 </div>
 
             </div>

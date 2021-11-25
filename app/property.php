@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class property extends Model
 {
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     protected $fillable = [
-        'location',
+        'title',
+        'slug',
         'price',
         'size',
         'bedroom',

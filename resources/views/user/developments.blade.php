@@ -36,97 +36,33 @@
     </div>
     <!-- Home Slider End -->
 
-
-    <!-- Main Start -->
-    <main id="at-main" class="at-main at-haslayout">
-        <!-- Two Columns Start -->
-        <div class="at-haslayout at-main-section">
-            <div class="container">
-                <div class="row">
-                    <div id="at-twocolumns" class="at-twocolumns at-haslayout">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 float-left">
-                            <!-- Properties List Start -->
-                            <div class="at-showresult-holder">
-                                <div class="at-resulttitle">
-                                    <span>{{ $properties->count() }} Properties under new developments</span>
-                                </div>
-                            </div>
-                            <div class="at-properties-grid at-haslayout">
-                                <div class="row properties">
-                                    @foreach($properties as $property)
-                                        <div class="col-12 col-md-6 col-lg-12 col-xl-6" data-loc="{{ $property->property_location->name }}">
-                                            <div class="at-featured-holder">
-                                                <div class="at-featuredslider owl-carousel">
-                                                    <figure class="item">
-                                                        <a href="{{ route('property',$property->id) }}"><img
-                                                                src="{{ Storage::url($property->image) }}"
-                                                                alt="img description"
-                                                                class="item"></a>
-                                                        <figcaption>
-                                                            <div class="at-slider-details">
-                                                                @if($property->feature==1)
-                                                                    <a href="javascript:void(0);"
-                                                                       class="at-tag">Featured</a>
-                                                                @endif
-                                                                <img src="{{ Storage::url($property->image) }}"
-                                                                     alt="img description" class="at-360-img">
-                                                            </div>
-                                                        </figcaption>
-                                                    </figure>
-                                                    @foreach(Storage::disk('public')->files("properties/".$property->id."/carousel") as $image)
-                                                        <figure class="item">
-                                                            <a href="{{ route('property',$property->id) }}">
-                                                                <img src="{{ Storage::url($image) }}"
-                                                                     alt="img description"
-                                                                     class="item">
-                                                            </a>
-                                                            <figcaption>
-                                                                <div class="at-slider-details">
-                                                                    @if($property->feature==1)
-                                                                        <a href="javascript:void(0);"
-                                                                           class="at-tag">Featured</a>
-                                                                    @endif
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
-                                                    @endforeach
-                                                </div>
-                                                <div class="at-featured-content">
-                                                    <div class="at-featured-head">
-                                                        <div class="at-featured-title">
-                                                            <h3><a href="{{ route('property',$property->id) }}">{{ $property->price }}</a>
-                                                                <span><em>Ksh</em></span>
-                                                            </h3>
-                                                        </div>
-
-                                                        <ul class="at-room-featured">
-                                                            <li><span><i><img
-                                                                            src="{{ asset('user/images/featured-img/icons/img-02.jpg')}}"
-                                                                            alt="img description"></i> {{ $property->bedroom }} Bedrooms</span>
-                                                            </li>
-                                                            <li><span><i><img
-                                                                            src="{{ asset('user/images/featured-img/icons/img-03.jpg')}}"
-                                                                            alt="img description"></i> {{ $property->bathroom }} Bathrooms</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="at-featured-footer">
-                                                        <address><a href="{{ route('property',$property->id) }}">{{ $property->meta_title }}</a></address>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                {{ $properties->links('vendor.pagination.default') }}
-                            </div>
-                            <!-- Properties List End -->
+    <section class="at-haslayout at-main-section at-sectionbg" id="at-haslayout" >
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="at-category-gallery at-haslayout" id="featured-properties" style="margin-top:-80px;">
+                    @foreach($properties as $featured)
+                        <div class="col-sm-12 col-md-6 col-lg-6 float-left tr-trip-imgs" style="margin-top:1.5px;margin-right: -28px;">
+                            <figure>
+                                <a href="{{ route('property',$featured->slug) }}">
+                                    <img src="{{ Storage::url($featured->image) }}" alt="img description">
+                                </a>
+                                <figcaption>
+                                    <div class="at-trip-content">
+                                        <h3>{{ $featured->title }}</h3>
+                                        <h4>{{ $featured->price }} <span>(Ksh)</span></h4>
+                                    </div>
+                                </figcaption>
+                            </figure>
                         </div>
+                    @endforeach
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left at-btnarea hidden-lg hidden-md">
+                        {{ $properties->links('vendor.pagination.default') }}
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Two Columns End -->
-    </main>
+    </section>
+    <!-- Main Start -->
+
 @endsection
 

@@ -30,9 +30,7 @@
               </a>
               <ul class="treeview-menu">
                   <li><a href="{{ route('banner.index') }}"><i class="fa fa-circle-o"></i>Banners</a></li>
-                  <li><a href="{{ route('service.index') }}"><i class="fa fa-circle-o"></i>Services</a></li>
                   <li><a href="{{ route('testimonials.index') }}"><i class="fa fa-circle-o"></i>Reviews</a></li>
-                  <li><a href="{{ route('members.index') }}"><i class="fa fa-circle-o"></i>Members</a></li>
               </ul>
           </li>
 
@@ -44,7 +42,6 @@
             </span>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="{{ route('locations.index') }}"><i class="fa fa-circle-o"></i> Locations</a></li>
                   <li><a href="{{ route('features.index') }}"><i class="fa fa-circle-o"></i> Features</a></li>
                   <li><a href="{{ route('properties.index') }}"><i class="fa fa-circle-o"></i> Properties</a></li>
               </ul>
@@ -61,20 +58,6 @@
                   <li><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i> Posts</a></li>
                   <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Categories</a></li>
                   <li><a href="{{ route('tag.index') }}"><i class="fa fa-circle-o"></i> Tags</a></li>
-              </ul>
-          </li>
-
-
-          <li class="treeview">
-              <a href="#">
-                  <i class="fa fa-image"></i> <span>Images</span>
-                  <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-              </a>
-              <ul class="treeview-menu">
-                  <li><a href="{{ url('admin/images') }}"><i class="fa fa-circle-o"></i> View all</a></li>
-                  <li><a href="{{ url('admin/upload-images') }}"><i class="fa fa-circle-o"></i> Upload new</a></li>
               </ul>
           </li>
     </ul>

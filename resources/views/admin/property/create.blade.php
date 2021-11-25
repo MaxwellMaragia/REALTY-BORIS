@@ -63,13 +63,8 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="subtitle">Location<span class="text-danger">*</span></label>
-                                            <select name="location" id="location" class="form-control" required="required">
-                                                <option value="">Select location</option>
-                                                @foreach($locations as $location)
-                                                    <option value="{{ $location->id }}">{{ $location->name }}</option>
-                                                @endforeach
-                                            </select>
+                                            <label for="subtitle">Title<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="title" required="required" placeholder="eg KILIMANI 3 BEDROOM WITH SQ" value="{{ old('title') }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="title">Price (ksh)<span class="text-danger">*</span></label>
@@ -102,8 +97,18 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="title">Completion date <small class="text-info">(If property is under new development/optional)</small></label>
-                                            <input type="date" class="form-control" id="completion_date" name="completion_date" placeholder="Completion date"  value="{{ old('completion_date') }}" >
+                                            <label for="slug">Upcoming developments</label><br>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value="1" name="new_development" id="new_development"
+                                                              @if(old('new_development')==1)
+                                                              checked
+                                                        @endif
+                                                    > Upcoming development</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">Completion date</label>
+                                            <input type="date" class="form-control" id="completion_date" name="completion_date" placeholder="Completion date"  value="{{ old('completion_date') }}" disabled="disabled" >
                                         </div>
                                     </div>
                                 </div>
@@ -191,15 +196,6 @@
                                                         @endif
                                                     > Activate</label>
                                             </div>
-
-                                            <label for="slug">Upcoming developments</label><br>
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="1" name="new_development" id="new_development"
-                                                              @if(old('new_development')==1)
-                                                              checked
-                                                        @endif
-                                                    > Upcoming development</label>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -245,11 +241,9 @@
 
         $('#new_development').change(function(){
             if($(this).is(":checked")) {
-                $('#completion_date').attr('required','required');
-
+                $('#completion_date').removeAttr('disabled');
             } else {
-                $('#completion_date').removeAttr('required');
-
+                $('#completion_date').attr('disabled','disabled');
             }
         });
 
