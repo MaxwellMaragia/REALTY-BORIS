@@ -15,9 +15,13 @@
     <meta name="language" content="{{ $seo->language }}">
     <meta name="revisit-after" content="{{ $seo->revisit_after }}">
     <style>
+
+        #about-me{
+            background: #D2D2D2;
+        }
         #about-me-box {
             margin: 50px 0;
-            background-color: #fff;
+
             /*box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);*/
             display: block;
             padding: 0 10px 0 0;
@@ -31,7 +35,11 @@
         }
         #about-realty{
             padding: 10px 0 20px;
-            font-size: 17px;
+            font-size: 15.5px;
+            background-color: #fff;
+        }
+        #about-realty-header img{
+            width:50%;
         }
         .tr-trip-imgs{
             margin-right: -28px;
@@ -43,16 +51,24 @@
         #featured-properties{
             margin-top:-80px;
         }
-        #viewmore{
+        #featured-listings{
+            width: 80%;
+        }
+        .outline-button{
             border:1px solid #0D5B33;
             color: #0D5B33;
             padding: 10px 30px;
-            margin-top:130px;
+
         }
         #viewmore:hover{
             background-color: #0D5B33;
             color: #FFFFFF;
         }
+        #team-image{
+            margin-top:30px;
+        }
+
+
         @media (max-width: 767px) {
             .hidden-xs {
                 display: none !important;
@@ -64,7 +80,7 @@
                 padding-left: 20px;
                 padding-right: 10px;
             }
-          
+
 
         }
 
@@ -78,11 +94,23 @@
             .hidden-md {
                 display: none !important;
             }
+            .boris img{
+                margin-top:45px;
+            }
+            .at-sectiontitle{
+                padding-right: 50px;
+            }
         }
 
         @media (min-width: 1200px) {
             .hidden-lg {
                 display: none !important;
+            }
+            .boris img{
+                margin-top:45px;
+            }
+            .at-sectiontitle{
+                padding-right: 50px;
             }
         }
     </style>
@@ -106,11 +134,11 @@
                         <div class="col-12 col-md-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2">
                             <div class="at-slider-header">
 {{--                                <img src="{{ Storage::url($logo_dark->value) }}" width="40%" >--}}
-                                <div class="at-title">
+                                <div class="at-title" >
                                     <h1><span>Find Exotic &amp; Affordable</span></h1>
                                 </div>
                                 <div class="at-description">
-                                    <a href="{{ url('properties') }}" class="at-btn at-btnactive">Start Exploring</a>
+                                    <a href="{{ url('properties') }}" class="at-btn at-btnactive outline-button">Start Exploring</a>
                                 </div>
                             </div>
                         </div>
@@ -128,10 +156,9 @@
             <div class="row justify-content-center" style="margin-left: -55px;">
                 <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center  tr-trip-imgs hidden-sm hidden-xs" style="margin-top:1.5px;">
                     <div class="at-sectionhead">
-                        <div class="at-sectiontitle" style="padding-top: 80px;">
-                            <h2 style="font-size:54px;letter-spacing: -4.5px;color: #018038;">Featured</h2>
-                            <h2 style="font-size: 30px;">Properties</h2><br>
-                            <a href="{{ url('properties') }}" id="viewmore">View all properties +</a>
+                        <div class="at-sectiontitle" style="padding-top: 30px;" >
+                                <img src="{{ asset('Featured Listings.png') }}" alt="" id="featured-listings" class="float-md-right float-lg-right"><br>
+                            <a href="{{ url('properties') }}" class="outline-button float-md-right float-lg-right">View all properties +</a>
                         </div>
                     </div>
                 </div>
@@ -160,27 +187,32 @@
     <main id="at-main" class="at-main at-haslayout">
 
 
-        <section id="about-me">
-            <div class="contaner">
+        <section id="about-me" >
+            <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div id="about-me-box">
-                            <div class="row justify-content-center" STYLE="margin-top:-75px;background: #f7f8f9;">
-                                <div class="col-md-6 col-xs-12">
-                                    <img class="max-width-xs" src="{{ asset('boris.jpg') }}" />
+                            <div class="row justify-content-center" >
+                                <div class="col-md-5 col-xs-12 boris">
+                                    <img class="max-width-xs" src="{{ asset('boris.jpg') }}" style="width: 100%"/>
                                 </div><!-- end col-md-7 -->
-                                <div class="col-md-6 col-xs-12">
-                                    <div class="text-center" style="padding-top: 90px;"><h1>Boris Yelstine</h1></div>
+                                <div class="col-md-7 col-xs-12" style="background: #ffffff;">
+                                    <div class="text-center" id="about-realty-header" style="padding-top: 90px;">
+                                        <img src="{{ asset('Realty Boris.png') }}" alt="">
+                                    </div>
                                     <div class="container">
                                         <p id="about-realty">
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
                                             <br>more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                             <br>
-                                            <a href="{{ $youtube->value }}" target="_blank" class="at-btn at-btnactive text-center" style="margin-top:40px;">Watch My Youtube</a>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                            <br>more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                            <br>
+                                            <a href="{{ $youtube->value }}" target="_blank" class="at-btn at-btnactive text-center "  id="about-realty-button" style="margin-top:40px;">Watch My Youtube</a>
                                         </p>
                                     </div>
                                 </div><!-- end col-md-5-->
-                                <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="100%" >
+                                <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="100%" id="team-image" >
 {{--                                <div class="col-12 col-md-12 col-lg-12 col-xl-11 text-center" style="">--}}
 {{--                                        <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="70%" >--}}
 
@@ -311,7 +343,21 @@
 
     </main>
     <!-- Main End -->
+@section('additional-js')
+    <script>
+        ScrollReveal({
+            reset:false,
+            distance: '60px',
+            duration: 1500,
+            delay: 300
+        });
 
+        ScrollReveal().reveal('.at-title, .at-sectiontitle, .boris',{  delay:500, origin:'left' });
+        ScrollReveal().reveal('.at-description, .home-property, #about-realty',{  delay:500, origin:'right' });
+        ScrollReveal().reveal('#about-realty-header',{  delay:500, origin:'top' });
+        ScrollReveal().reveal('#about-realty-button, #team-image',{  delay:500, origin:'bottom' });
+    </script>
+@endsection
 @endsection
 
 

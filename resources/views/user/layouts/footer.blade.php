@@ -5,9 +5,6 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
                     <div class="at-fwidget">
-                        <div class="at-fwidget-titile">
-                            <h3>REALTY BORIS</h3>
-                        </div>
                         <div class="at-fwidget-content">
                             <img src="{{ Storage::url($logo_light->value) }}" alt="">
                         </div>
@@ -16,7 +13,7 @@
                 <div class="col-12 col-md-12 col-lg-6 col-xl-5">
                     <div class="at-fwidget at-locations-info">
                         <div class="at-fwidget-titile">
-                            <h3>Explore Properties in listed Locations</h3>
+                            <h3>QUICK LINKS</h3>
                         </div>
                         <div class="at-fwidget-content">
                             <ul>
@@ -74,6 +71,7 @@
 <script src="{{ asset('user/js/readmore.js')}}"></script>
 <script src="{{ asset('user/js/lightpick.js')}}"></script>
 <script src="{{ asset('user/js/main-min.js')}}"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
 @section('additional-js')
 
 @show

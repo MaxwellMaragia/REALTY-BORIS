@@ -14,12 +14,16 @@
 
                                     <li class="nav-item">
                                         <a href="{{ url('/') }}">Home</a>
+                                        <span class="divider"></span>
                                     </li>
+
                                     <li class="nav-item">
                                         <a href="{{ url('about-us') }}">About</a>
+                                        <span class="divider"></span>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ url('properties') }}">Properties</a>
+                                        <span class="divider"></span>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ url('blog') }}">Blog</a>
