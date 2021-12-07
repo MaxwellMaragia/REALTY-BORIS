@@ -131,54 +131,12 @@
                                     <label for="slug">Map url</label>
                                     <input type="url" class="form-control" id="slug" name="map" placeholder="Google map address" required="required" value="{{ $map->value }}">
                                 </div>
-
-                                <div class="form-group ">
-                                    <div class="form-group ">
-                                        <img src="{{ Storage::url($about_image->value) }}"  alt="User Image" id="preview3" height="150px" width="300px" onchange="previewImage(this)">
-                                    </div>
-                                    <div class="file">
-                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload about image</label>
-                                        <input type="file" name="about_image" accept="image/*" class="form-control" id="about_image">
-                                    </div>
-                                </div>
-
-                                {{--<div class="form-group">--}}
-                                    {{--<label for="name">Short description</label>--}}
-                                    {{--<textarea class="form-control" rows="3" placeholder="Write short description...." name="short_description">--}}
-                                           {{--{{ $service->short_description }}--}}
-                                        {{--</textarea>--}}
-
-                                {{--</div>--}}
-
-                                <div class="form-group">
-                                    <label for="editor1">About us text body</label>
-                                        <textarea name="about_text" id="editor1" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                                            {{ $about_text->value }}
-                                        </textarea>
-                                </div>
-
-
-                                {{--<div class="form-group">--}}
-                                    {{--<label for="slug">Service status</label><br>--}}
-                                    {{--<div class="checkbox">--}}
-                                        {{--<label>--}}
-                                            {{--<input type="checkbox" value="1" name="status"--}}
-                                                      {{--@if($service->status ==1)--}}
-                                                      {{--checked--}}
-                                                    {{--@endif--}}
-                                            {{-->--}}
-                                            {{--Activate--}}
-                                        {{--</label>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-
                             </div>
-
                         </div>
 
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a class="btn btn-warning" href="{{ route('service.index') }}">Back</a>
+                            <a class="btn btn-warning" href="{{ route('settings.index') }}">Back</a>
                         </div>
                     </form>
                 </div>

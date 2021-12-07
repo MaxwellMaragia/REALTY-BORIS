@@ -134,10 +134,10 @@
                         <div class="col-12 col-md-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2">
                             <div class="at-slider-header">
 {{--                                <img src="{{ Storage::url($logo_dark->value) }}" width="40%" >--}}
-                                <div class="at-title" >
+                                <div class="at-title top" >
                                     <h1><span>Find Exotic &amp; Affordable</span></h1>
                                 </div>
-                                <div class="at-description">
+                                <div class="at-description bottom">
                                     <a href="{{ url('properties') }}" class="at-btn at-btnactive outline-button">Start Exploring</a>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
             <div class="row justify-content-center" style="margin-left: -55px;">
                 <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center  tr-trip-imgs hidden-sm hidden-xs" style="margin-top:1.5px;">
                     <div class="at-sectionhead">
-                        <div class="at-sectiontitle" style="padding-top: 30px;" >
+                        <div class="at-sectiontitle from-left" style="padding-top: 30px;" >
                                 <img src="{{ asset('Featured Listings.png') }}" alt="" id="featured-listings" class="float-md-right float-lg-right"><br>
                             <a href="{{ url('properties') }}" class="outline-button float-md-right float-lg-right">View all properties +</a>
                         </div>
@@ -164,7 +164,7 @@
                 </div>
 
                 @foreach($featured_properties as $featured)
-                    <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs home-property" style="margin-top:1.5px;">
+                    <div class="col-sm-12 col-md-6 col-lg-4 float-left tr-trip-imgs home-property from-right" style="margin-top:1.5px;">
                         <figure>
                             <a href="{{ route('property',$featured->slug) }}">
                                 <img src="{{ Storage::url($featured->image) }}" alt="img description">
@@ -193,26 +193,26 @@
                     <div class="col-md-12">
                         <div id="about-me-box">
                             <div class="row justify-content-center" >
-                                <div class="col-md-5 col-xs-12 boris">
-                                    <img class="max-width-xs" src="{{ asset('boris.jpg') }}" style="width: 100%"/>
+                                <div class="col-md-5 col-xs-12 boris from-right">
+                                    <img class="max-width-xs " src="{{ asset('boris.jpg') }}" style="width: 100%"/>
                                 </div><!-- end col-md-7 -->
                                 <div class="col-md-7 col-xs-12" style="background: #ffffff;">
-                                    <div class="text-center" id="about-realty-header" style="padding-top: 90px;">
+                                    <div class="text-center top" id="about-realty-header" style="padding-top: 90px;">
                                         <img src="{{ asset('Realty Boris.png') }}" alt="">
                                     </div>
                                     <div class="container">
-                                        <p id="about-realty">
+                                        <p id="about-realty from-right">
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
                                             <br>more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                             <br>
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
                                             <br>more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                             <br>
-                                            <a href="{{ $youtube->value }}" target="_blank" class="at-btn at-btnactive text-center "  id="about-realty-button" style="margin-top:40px;">Watch My Youtube</a>
+                                            <a href="{{ $youtube->value }}" target="_blank" class="at-btn at-btnactive text-center bottom"  id="about-realty-button" style="margin-top:40px;">Watch My Youtube</a>
                                         </p>
                                     </div>
                                 </div><!-- end col-md-5-->
-                                <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="100%" id="team-image" >
+                                <img src="{{ Storage::url($first_image->value) }}" alt="team image" width="100%" id="team-image" class="bottom">
 {{--                                <div class="col-12 col-md-12 col-lg-12 col-xl-11 text-center" style="">--}}
 {{--                                        <img src="{{ Storage::url($about_image->value) }}" alt="team image" width="70%" >--}}
 
@@ -230,17 +230,17 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="at-category-gallery at-haslayout">
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left" >
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left " >
                             <a href="{{ url('contact-us') }}">
-                                <figure class="at-category-img">
+                                <figure class="at-category-img from-left">
                                     <img src="{{ asset('user/images/category/img-01.jpg')}}" alt="img description">
                                     <figcaption><h3>List with us</h3></figcaption>
                                 </figure>
                             </a>
                         </div>
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left ">
                             <a href="{{ url('new-developments') }}">
-                                <figure class="at-category-img">
+                                <figure class="at-category-img from-right">
                                     <img src="{{ asset('user/images/category/img-02.jpg')}}" alt="img description">
                                     <figcaption><h3>New developments</h3></figcaption>
                                 </figure>
@@ -248,7 +248,7 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left">
                             <a href="{{ url('contact-us') }}">
-                                <figure class="at-category-img">
+                                <figure class="at-category-img from-right">
                                     <img src="{{ asset('user/images/category/img-03.jpg')}}" alt="img description">
                                     <figcaption><h3>Our offices</h3></figcaption>
                                 </figure>
@@ -343,21 +343,7 @@
 
     </main>
     <!-- Main End -->
-@section('additional-js')
-    <script>
-        ScrollReveal({
-            reset:false,
-            distance: '60px',
-            duration: 1500,
-            delay: 300
-        });
 
-        ScrollReveal().reveal('.at-title, .at-sectiontitle, .boris',{  delay:500, origin:'left' });
-        ScrollReveal().reveal('.at-description, .home-property, #about-realty',{  delay:500, origin:'right' });
-        ScrollReveal().reveal('#about-realty-header',{  delay:500, origin:'top' });
-        ScrollReveal().reveal('#about-realty-button, #team-image',{  delay:500, origin:'bottom' });
-    </script>
-@endsection
 @endsection
 
 

@@ -43,7 +43,7 @@ class HomeController extends Controller
         View::share('address', settings::where('name','address')->first());
         View::share('footer_text', settings::where('name','footer_text')->first());
         View::share('map', settings::where('name','map')->first());
-        View::share('about_image', settings::where('name','about_image')->first());
+        View::share('first_image', settings::where('name','first_image')->first());
 
     }
 
@@ -73,9 +73,11 @@ class HomeController extends Controller
 
     public function about(){
         $seo = seo::where('page','about')->first();
-        $about_image = settings::where('name','about_image')->first();
+        $second_image = settings::where('name','second_image')->first();
         $about_text = settings::where('name','about_text')->first();
-        return view('user.about',compact('seo','about_image','about_text'));
+        $our_history = settings::where('name','our_history')->first();
+        $images = Storage::disk('public')->files('files/our-brokerage');
+        return view('user.about',compact('seo','second_image','our_history','about_text','images'));
     }
 
     public function post(post $post){

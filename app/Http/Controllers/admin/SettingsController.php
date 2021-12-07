@@ -29,10 +29,8 @@ class SettingsController extends Controller
             $youtube = settings::where('name', 'youtube')->first();
             $address = settings::where('name', 'address')->first();
             $map = settings::where('name', 'map')->first();
-            $about_image = settings::where('name', 'about_image')->first();
-            $about_text = settings::where('name', 'about_text')->first();
 
-            return view('admin.settings.setting',compact('logo_dark','facebook','logo_light','favicon','email','whatsapp','instagram','twitter','youtube','mobile','address','map','about_image','about_text'));
+            return view('admin.settings.setting',compact('logo_dark','facebook','logo_light','favicon','email','whatsapp','instagram','twitter','youtube','mobile','address','map'));
 
 
 
@@ -44,8 +42,6 @@ class SettingsController extends Controller
             'logo_light' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'logo_dark' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'logo_favicon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-            'about_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-
         ]);
 
         if($request->hasFile('logo_light'))
@@ -93,14 +89,6 @@ class SettingsController extends Controller
             $favicon->save();
         }
 
-        if($request->hasFile('about_image'))
-        {
-            $about_image = settings::where('name','about_image')->first();
-
-            $about_image->value = $request->about_image->store('public/files/settings');
-            $about_image->save();
-        }
-
         $email = settings::where('name','email')->first();
         $email->value = $request->email;
         $email->save();
@@ -136,10 +124,6 @@ class SettingsController extends Controller
         $map = settings::where('name','map')->first();
         $map->value = $request->map;
         $map->save();
-
-        $about_text = settings::where('name','about_text')->first();
-        $about_text->value = $request->about_text;
-        $about_text->save();
 
         return redirect()->back()->with('success','Settings updated successfully');
     }

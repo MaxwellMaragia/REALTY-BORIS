@@ -72,6 +72,19 @@
 <script src="{{ asset('user/js/lightpick.js')}}"></script>
 <script src="{{ asset('user/js/main-min.js')}}"></script>
 <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+    ScrollReveal({
+        reset:false,
+        distance: '60px',
+        duration: 1500,
+        delay: 300
+    });
+
+    ScrollReveal().reveal('.from-left',{  delay:500, origin:'left' });
+    ScrollReveal().reveal('.from-right',{  delay:500, origin:'right' });
+    ScrollReveal().reveal('.top',{  delay:500, origin:'top' });
+    ScrollReveal().reveal('.bottom',{  delay:500, origin:'bottom' });
+</script>
 @section('additional-js')
 
 @show

@@ -21,6 +21,7 @@ Route::group(['namespace' => 'admin'], function (){
     Route::resource('admin/offer','OffersController');
     Route::resource('admin/seo','SeoController');
     Route::resource('admin/settings','SettingsController');
+    Route::resource('admin/about','AboutController');
     Route::resource('admin/features','FeaturesController');
     Route::resource('admin/locations','LocationsController');
     Route::resource('admin/properties','PropertyController');

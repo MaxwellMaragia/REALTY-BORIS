@@ -16,7 +16,17 @@
     <meta name="revisit-after" content="{{ $seo->revisit_after }}">
 @endsection
 {{--end meta tags--}}
+@section('additional-css')
+    <style>
+        .description p{
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 26px;
+            color: #666666;
+        }
 
+    </style>
+@endsection
 @section('main-content')
     <!-- Inner Banner Start -->
     <div class="at-haslayout at-innerbannerholder" >
@@ -44,14 +54,27 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl126">
                         <div class="at-success-content">
-                            <img src="{{ Storage::url($about_image->value) }}" style="width: 100%;margin-bottom: 30px;">
-                            <div class="at-title">
-                                <h2><span>About Realty Boris</span></h2>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img src="{{ asset('Realty Boris About us.png') }}" alt="about us">
+                                </div>
+                                <div class="col-md-7">
+                                    <img src="{{ Storage::url($second_image->value) }}" alt="our team">
+                                </div>
                             </div>
-                            <div class="at-description">
+                            <div class="at-description" style="margin-top:60px;">
                                 {!! htmlspecialchars_decode($about_text->value) !!}
                             </div>
+
+                            <img src="{{ asset('Our Brokerage .png') }}" alt="about us" class="col-md-3 col-lg-3">
+                            <div class="owl-carousel owl-theme">
+                                @foreach($images as $image)
+                                    <img src="{{ Storage::url($image) }}" alt="image">
+                                @endforeach
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -61,5 +84,20 @@
 
     </main>
     <!-- Main End -->
+    @section('additional-js')
+        <script>
+            $('.owl-carousel').owlCarousel({
+                center: true,
+                items:2,
+                loop:true,
+                margin:10,
+                responsive:{
+                    600:{
+                        items:4
+                    }
+                }
+            })
+        </script>
+    @endsection
 @endsection
 

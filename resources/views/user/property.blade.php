@@ -13,6 +13,17 @@
     <!-- keywords -->
     <meta name="keywords" content="{{ $property->meta_keywords }}">
 
+    <meta property="og:url"           content="{{ route('property',$property->slug) }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{ $property->title }}" />
+    <meta property="og:description"   content="{{ $property->title }}" />
+    <meta property="og:image"         content="{{ Storage::url($property->image) }}" />
+    <meta name="twitter:card" content="{{ Storage::url($property->image) }}">
+    <meta name="twitter:title" content="{{ $property->title }}">
+    <meta name="twitter:description" content="{{ Storage::url($property->image) }}">
+    <meta name="twitter:image" content="{{ Storage::url($property->image) }}">
+
+
 
 @endsection
 {{--end meta tags--}}
@@ -26,8 +37,10 @@
         .sticky-container{
             display: none;
         }
+        #desc{
+            background: #fff;z-index: 100;padding-bottom: 60px;margin-bottom:50px;
+        }
         .description p {
-            padding: 30px 30px 40px;
             font-size: 15px;
             font-weight: 300;
             line-height: 26px;
@@ -47,11 +60,14 @@
         }
 
         .description .at-btn {
-            margin-left: 18px;
             font-size: 18px;
             line-height: 53px;
             margin-bottom: 9px;
             width: 100%;
+        }
+
+        .share{
+            margin-top:9px;
         }
 
         .description .at-btn:hover {
@@ -230,11 +246,25 @@
             line-height: 12px;
         }
 
+        .our-properties-single-smi-title {
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 18px;
+            text-transform: uppercase;
+            color: #e51937;
+            position: relative;
+        }
+
 
         @media (max-width: 767px) {
             .hidden-xs {
                 display: none !important;
             }
+            .cont{
+                padding-right:0px;
+                padding-left: 0px;
+            }
             .properties-single-slideshow-info {
                 position: relative;
                 bottom: 0;
@@ -248,11 +278,21 @@
             .show-hide-btn{
                 display: none;
             }
+
+            .description .at-btn {
+                font-size: 13px;
+            }
+
         }
 
         @media (min-width: 768px) and (max-width: 991px) {
+
             .hidden-sm {
                 display: none !important;
+            }
+            .cont{
+                padding-right:0px;
+                padding-left: 0px;
             }
             .properties-single-slideshow-info {
                 position: relative;
@@ -266,6 +306,9 @@
             }
             .show-hide-btn{
                 display: none;
+            }
+            .description .at-btn {
+                font-size: 13px;
             }
         }
 
@@ -276,6 +319,14 @@
 
             .description p {
                 column-count: 2;
+                padding: 30px 30px 40px;
+            }
+            .description .at-btn, .share {
+                margin-left: 18px;
+            }
+
+            #desc{
+                margin-top:780px;
             }
         }
 
@@ -283,9 +334,15 @@
             .hidden-lg {
                 display: none !important;
             }
-
             .description p {
                 column-count: 2;
+                padding: 30px 30px 40px;
+            }
+            #desc{
+                margin-top:780px;
+            }
+            .description .at-btn, .share {
+                margin-left: 18px;
             }
         }
     </style>
@@ -295,6 +352,31 @@
 
 {{--end additional css--}}
 @section('main-content')
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <script>window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));</script>
+
     <!-- Inner Banner Start -->
     <div id="at-homeslider-holder" class="at-homeslider-holder at-haslayout">
         <div class="at-homeslider">
@@ -332,150 +414,56 @@
         </ul>
     </div>
 
-    <div class="container">
-        <div class="col-md-12" id="desc"
-             style="background: #fff;margin-top:780px;z-index: 100;padding-bottom: 60px;">
-            <h2 id="property-heading">{{ $property->title }}</h2>
+    <div class="container cont">
+        <div class="col-md-12" id="desc">
+            <h2 id="property-heading" class="hidden-sm hidden-xs">{{ $property->title }}</h2>
             <div class="description">
                 <div class="container">
                     {!! htmlspecialchars_decode($property->description) !!}
-                    <div class="col-md-5">
-                        <a href="{{ url('properties') }}" class="at-btn at-btnactive outline-button">REQUEST
+                    <div class="col-md-5 ">
+                        <a href="{{ url('contact-us') }}" class="at-btn at-btnactive outline-button">REQUEST
                             DETAILS</a>
-                        <a href="{{ url('properties') }}" class="at-btn at-btnactive outline-button">SCHEDULE A
+                        <a href="{{ url('contact-us') }}" class="at-btn at-btnactive outline-button">SCHEDULE A
                             SHOWING</a>
                         <a href="{{ url('properties') }}" class="at-btn at-btnactive outline-button">VIEW MORE
                             LISTINGS</a>
+
+
+                        <div class="share ">
+                            <div class="fb-share-button"
+                                 data-href="{{ Request::url() }}"
+                                 data-layout="button_count" data-size="large" style="margin-left:7px;">
+                            </div>
+                            <a class="twitter-share-button"
+                               href="{{ Request::url() }}" data-size="large">
+                                Tweet</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="at-haslayout at-propertybannerholder" style="margin-top:50px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-12">
-                    <div class="at-propertybannercontent">
-                        <div class="at-propertyholder">
-                            <div class="at-title">
-                                <div class="at-tags">
-                                    @if($property->featured == 1)
-                                        <a href="javascript:void(0);" class="at-tag">Featured</a>
-                                    @endif
-                                    @if($property->new_development ==1)
-                                        <a href="javascript:void(0)" class="at-tag at-rated">New development</a>
-                                    @endif
-                                </div>
-                                <div class="at-username">
-                                    <h2>{{ $property->title }}</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="at-rightarea">
-                            <div class="at-singlerate">
-                                <span><em>{{ $property->price }}</em>ksh</span>
-                            </div>
-                            <ul class="at-featureabout">
-                                <li><a href="javascript:void(0);" class="at-like at-liked"><i class="far fa-bed"></i>Bedrooms: {{ $property->bedroom }}
-                                    </a></li>
-                                <li><a href="javascript:void(0);"><i
-                                            class="fa fa-shower"></i>Bathrooms: {{ $property->bathroom }}</a></li>
-                                @if($property->new_development ==1)
-                                    <li><a href="javascript:void(0)">
-                                            <i class="fa fa-calendar-check"></i>Completion
-                                            date: {{ $property->completion_date }}
-                                        </a></li>
-                                @endif
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Home Slider End -->
-
-
-    <!-- Main Start -->
-    <main id="at-main" class="at-main at-haslayout">
-
-        <!-- Two Columns Start -->
-        <div class="at-haslayout at-main-section at-propertysingle-mt">
-            <div class="container">
-                <div class="row">
-                    <div id="at-twocolumns" class="at-twocolumns at-haslayout">
-
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 float-left">
-                            <div class="at-propertylinkdetails at-haslayout">
-                                <ul class="at-propertylink">
-                                    <li><a href="#at-about">About property</a></li>
-                                    <li><a href="#at-amenetiesproperty">Amenities</a></li>
-                                </ul>
-                                <div id="at-about" class="at-propertydetails at-aboutproperty">
-                                    <div class="at-propertytitle">
-                                        <h3>About Property</h3>
-                                    </div>
-                                    <div class="at-description">
-                                        {!! htmlspecialchars_decode($property->description) !!}
-                                    </div>
-                                </div>
-                                <div class="at-propertydetails at-detailsproperty">
-                                    <div class="at-propertytitle">
-                                        <h3>Property Details</h3>
-                                    </div>
-                                    <ul class="at-detailslisting">
-                                        <li><h4>Bedrooms</h4><span>{{ $property->bedroom }}</span></li>
-                                        <li><h4>Bathrooms</h4><span>{{ $property->bathroom }}</span></li>
-                                        <li><h4>Size</h4><span>{{ $property->size }}</span></li>
-                                    </ul>
-                                </div>
-                                <div id="at-amenetiesproperty" class="at-propertydetails at-amenetiesproperty">
-                                    <div class="at-propertytitle">
-                                        <h3>Amenities</h3>
-                                    </div>
-                                    <ul id="at-amenetieslisting" class="at-amenetieslisting">
-                                        @foreach($property->features as $feature)
-                                            <li>
-                                                <div class="at-amenetiescontent">
-                                                    <span>{{ $feature->name }}</span>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Two Columns End -->
-    </main>
     <!-- Main End -->
-    {{--@section('additional-js')--}}
-    {{--    <script>--}}
-    {{--        $(document).ready(function() {--}}
+    @section('additional-js')
+        <script>
+            $(document).ready(function () {
+                $(".show-hide-btn").click(function () {
 
-    {{--            $("#at-homeslidervone").owlCarousel({--}}
+                    if($(".show-hide-btn").text()==="HIDE DETAILS"){
+                        $(".properties-single-slideshow-info").css('right',-350+'px');
+                        $(".show-hide-btn").text("SHOW DETAILS");
+                    }else{
 
-    {{--                navigation : true, // Show next and prev buttons--}}
+                        $(".properties-single-slideshow-info").css('right',0+'px');
+                        $(".show-hide-btn").text("HIDE DETAILS");
 
-    {{--                slideSpeed : 300,--}}
-    {{--                paginationSpeed : 400,--}}
+                    }
 
-    {{--                items : 1,--}}
-    {{--                itemsDesktop : false,--}}
-    {{--                itemsDesktopSmall : false,--}}
-    {{--                itemsTablet: false,--}}
-    {{--                itemsMobile : false--}}
-
-    {{--            });--}}
-
-    {{--        });--}}
-    {{--    </script>--}}
-    {{--@endsection--}}
+                });
+            });
+        </script>
+    @endsection
 
 @endsection
 

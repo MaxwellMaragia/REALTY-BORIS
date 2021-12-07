@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2021 at 11:05 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Dec 07, 2021 at 01:59 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,16 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admins` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `email` varchar(255)  NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255)  NOT NULL,
-  `phone` varchar(255)  NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `remember_token` varchar(100)  DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admins`
@@ -55,11 +55,11 @@ INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `p
 
 CREATE TABLE `banners` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `media` varchar(255)  NOT NULL,
+  `media` varchar(255) NOT NULL,
   `status` tinyint(1) DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `banners`
@@ -78,11 +78,11 @@ INSERT INTO `banners` (`id`, `media`, `status`, `created_at`, `updated_at`) VALU
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `slug` varchar(255)  NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -104,7 +104,7 @@ CREATE TABLE `category_posts` (
   `category_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category_posts`
@@ -124,14 +124,14 @@ INSERT INTO `category_posts` (`post_id`, `category_id`, `created_at`, `updated_a
 
 CREATE TABLE `enquiries` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `email` varchar(255)  NOT NULL,
-  `mobile` varchar(255)  DEFAULT NULL,
-  `subject` text  NOT NULL,
-  `message` text  NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `subject` text NOT NULL,
+  `message` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -141,12 +141,12 @@ CREATE TABLE `enquiries` (
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `connection` text  NOT NULL,
-  `queue` text  NOT NULL,
-  `payload` longtext  NOT NULL,
-  `exception` longtext  NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -156,10 +156,10 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `features` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
+  `name` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `features`
@@ -183,9 +183,9 @@ INSERT INTO `features` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255)  NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `migrations`
@@ -221,10 +221,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255)  NOT NULL,
-  `token` varchar(255)  NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `password_resets`
@@ -241,25 +241,25 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(256)  NOT NULL,
-  `subtitle` longtext  NOT NULL,
-  `slug` varchar(100)  NOT NULL,
-  `body` longtext  NOT NULL,
-  `keywords` longtext  NOT NULL,
+  `title` varchar(256) NOT NULL,
+  `subtitle` longtext NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `body` longtext NOT NULL,
+  `keywords` longtext NOT NULL,
   `status` tinyint(1) DEFAULT 0,
   `featured` tinyint(1) DEFAULT 0,
   `posted_by` int(11) DEFAULT NULL,
-  `image` varchar(255)  DEFAULT NULL,
-  `feature_image` varchar(255)  DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `feature_image` varchar(255) DEFAULT NULL,
   `likes` int(11) DEFAULT 0,
   `dislikes` int(11) DEFAULT 0,
-  `meta_author` varchar(255)  DEFAULT NULL,
-  `meta_title` varchar(255)  DEFAULT NULL,
-  `meta_description` varchar(255)  DEFAULT NULL,
-  `meta_keywords` varchar(255)  DEFAULT NULL,
+  `meta_author` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
@@ -281,7 +281,7 @@ CREATE TABLE `post_tags` (
   `tag_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -291,31 +291,31 @@ CREATE TABLE `post_tags` (
 
 CREATE TABLE `properties` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255)  NOT NULL,
-  `slug` varchar(255)  NOT NULL,
-  `price` varchar(255)  NOT NULL,
-  `size` varchar(255)  NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `size` varchar(255) NOT NULL,
   `bedroom` int(11) DEFAULT 0,
   `bathroom` int(11) DEFAULT 0,
-  `image` varchar(255)  DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `featured` tinyint(1) DEFAULT 0,
   `status` tinyint(1) DEFAULT 0,
   `new_development` tinyint(1) DEFAULT 0,
-  `description` longtext  NOT NULL,
-  `completion_date` varchar(255)  DEFAULT NULL,
-  `meta_title` varchar(255)  DEFAULT NULL,
-  `meta_description` varchar(255)  DEFAULT NULL,
-  `meta_keywords` varchar(255)  DEFAULT NULL,
+  `description` longtext NOT NULL,
+  `completion_date` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `properties`
 --
 
 INSERT INTO `properties` (`id`, `title`, `slug`, `price`, `size`, `bedroom`, `bathroom`, `image`, `featured`, `status`, `new_development`, `description`, `completion_date`, `meta_title`, `meta_description`, `meta_keywords`, `created_at`, `updated_at`) VALUES
-(2, 'KILIMANI 2 BEDROOM 9.5M', 'kilimani-2-bedroom-9.5m', '9,500,000', '100 metres squared', 2, 3, 'public/properties/2/RjZ8mnxBHb9afY88Fp6SgGGZH20YUSYDRAVIiiV9.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILIMANI 2 BEDROOM 9.5M', 'KILIMANI 2 BEDROOM 9.5M', 'KILIMANI 2 BEDROOM 9.5M', '2021-10-30 06:15:04', '2021-11-04 05:04:32'),
+(2, 'KILIMANI 2 BEDROOM 9.5M', 'kilimani-2-bedroom-95m', '9,500,000', '100', 2, 3, 'public/properties/2/RjZ8mnxBHb9afY88Fp6SgGGZH20YUSYDRAVIiiV9.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILIMANI 2 BEDROOM 9.5M', 'KILIMANI 2 BEDROOM 9.5M', 'KILIMANI 2 BEDROOM 9.5M', '2021-10-30 06:15:04', '2021-12-02 11:04:32'),
 (3, 'KILELESHWA ONE BEDROOM 9M', 'kileleshwa-one-bedroom-9m', '9,000,000', '200 metres squared', 1, 2, 'public/properties/3/ltwogsBFLYp1bbixoI6cu0YHKzxevmUkxgWQZKSK.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA ONE BEDROOM 9M', 'KILELESHWA ONE BEDROOM 9M', 'KILELESHWA ONE BEDROOM 9M', '2021-10-30 06:18:52', '2021-11-04 04:56:20'),
 (4, 'KILELESHWA 2 BEDROOM 11M', 'kileleshwa-2-bedroom-11m', '11,000,000', '200 metres squared', 2, 3, 'public/properties/4/Rj7QMZV1WLhidEaJ7g8ejFm0g38COXWDPYvr1Mtb.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA 2 BEDROOM 11M', 'KILELESHWA 2 BEDROOM 11M', 'KILELESHWA 2 BEDROOM 11M', '2021-10-30 06:20:20', '2021-11-04 04:58:58'),
 (5, 'KILELESHWA 3 BEDROOM SQ 23M', 'kileleshwa-3-bedroom-sq-23m', '23,000,000', '220 metres squared', 3, 5, 'public/properties/5/MCIR8qPVIv4eQjeVGiogQ9B0jQKXnIZ21VK4k96s.jpg', 1, 1, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempoer incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nrud exercitation ullamco laboris nisi ute aliquip ex ea commodo consequat duis auete irure dolor in reprehenderit in voluptate velit.</p>\r\n\r\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estae laborume Sed ut perspiciatis unde omnis iste natus error sitame voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta suntanes explicoe nemo enim ipsam voluptatem officia deserunt mollit anim.</p>', NULL, 'KILELESHWA 3 BEDROOM SQ 23M', 'KILELESHWA 3 BEDROOM SQ 23M', 'KILELESHWA 3 BEDROOM SQ 23M', '2021-10-30 06:21:39', '2021-11-04 05:00:30'),
@@ -335,7 +335,7 @@ CREATE TABLE `property_features` (
   `feature_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `property_features`
@@ -383,18 +383,18 @@ INSERT INTO `property_features` (`property_id`, `feature_id`, `created_at`, `upd
 
 CREATE TABLE `seos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `page` varchar(255)  NOT NULL,
-  `page_title` varchar(255)  NOT NULL,
-  `author` varchar(255)  DEFAULT NULL,
-  `title` varchar(255)  DEFAULT NULL,
-  `description` varchar(255)  DEFAULT NULL,
-  `css` longtext  DEFAULT NULL,
-  `keywords` varchar(255)  DEFAULT NULL,
-  `language` varchar(255)  DEFAULT NULL,
-  `revisit_after` varchar(255)  DEFAULT NULL,
+  `page` varchar(255) NOT NULL,
+  `page_title` varchar(255) NOT NULL,
+  `author` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `css` longtext DEFAULT NULL,
+  `keywords` varchar(255) DEFAULT NULL,
+  `language` varchar(255) DEFAULT NULL,
+  `revisit_after` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `seos`
@@ -415,20 +415,20 @@ INSERT INTO `seos` (`id`, `page`, `page_title`, `author`, `title`, `description`
 
 CREATE TABLE `services` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `slug` varchar(255)  NOT NULL,
-  `short_description` varchar(255)  NOT NULL,
-  `description` longtext  NOT NULL,
-  `media` varchar(255)  NOT NULL,
-  `icon` varchar(255)  DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `short_description` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `media` varchar(255) NOT NULL,
+  `icon` varchar(255) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 0,
-  `meta_author` varchar(255)  DEFAULT NULL,
-  `meta_title` varchar(255)  DEFAULT NULL,
-  `meta_description` varchar(255)  DEFAULT NULL,
-  `meta_keywords` varchar(255)  DEFAULT NULL,
+  `meta_author` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -438,18 +438,18 @@ CREATE TABLE `services` (
 
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `value` longtext  NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `value` longtext NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'logo_light', 'public/files/settings/0K56a8j04VAnvOirk90Qzr50FYYvZbON5rJ7Tjeh.png', NULL, '2021-11-19 11:38:04'),
+(1, 'logo_light', 'public/files/settings/hwBq8m5hInyVNuPKgub126aKReXS8V8n90fZ9uhK.png', NULL, '2021-12-02 11:02:20'),
 (2, 'logo_dark', 'public/files/settings/ygZMer5SAF7wjh4kL1jrmdmFJXgqAXKQUyh8Ykbl.png', NULL, '2021-11-17 07:29:58'),
 (3, 'favicon', 'public/files/settings/67Dukxp711VmZGXjgVQ7LCdC9wf0g9PkNvQGMpQQ.png', NULL, '2021-10-18 13:12:29'),
 (4, 'email', 'margiewambui11@gmail.com', NULL, '2021-10-18 13:12:29'),
@@ -461,8 +461,10 @@ INSERT INTO `settings` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUE
 (12, 'address', '2nd Floor, Brick Court, Woodvale', NULL, '2021-10-23 15:10:50'),
 (13, 'map', 'https://maps.google.com/maps?q=Pan%20Africa%20Chemicals%20Ltd&t=&z=13&ie=UTF8&iwloc=&output=embed', NULL, '2021-11-04 10:49:11'),
 (14, 'twitter', 'https://www.facebook.com/smartbottle', NULL, '2021-11-01 12:25:48'),
-(15, 'about_image', 'public/files/settings/oC3FhHN7KHpIvbt131oaOiFlTjmFMNDXHk7wkTgg.jpg', NULL, '2021-11-04 06:37:05'),
-(16, 'about_text', '<p><em>Consectetur adipisicing elit sed eiusmod tempor incididuntei ut labore et dolore magna aliqua enim ut veniam quistae nostrud exercitation ullamco laboris nisiutem.</em></p>\r\n\r\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.</p>', NULL, '2021-11-04 06:37:05');
+(15, 'first_image', 'public/files/settings/oC3FhHN7KHpIvbt131oaOiFlTjmFMNDXHk7wkTgg.jpg', NULL, '2021-11-04 06:37:05'),
+(16, 'about_text', '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.&nbsp;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.&nbsp;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.&nbsp;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.&nbsp;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.</p>', NULL, '2021-12-05 07:13:48'),
+(17, 'second_image', 'public/files/settings/xVQoy3pf15c6sbGpaK0IZOeJKTRqCQlKdhvJ8XEw.jpg', NULL, '2021-12-05 06:52:21'),
+(18, 'our_history', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum nilae dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonate proident sunt in culpa qui officia deserunt.', NULL, '2021-12-05 06:52:21');
 
 -- --------------------------------------------------------
 
@@ -472,11 +474,11 @@ INSERT INTO `settings` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUE
 
 CREATE TABLE `tags` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `slug` varchar(255)  NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tags`
@@ -498,17 +500,17 @@ INSERT INTO `tags` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `team_members` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `role` varchar(255)  NOT NULL,
-  `image` varchar(255)  NOT NULL,
-  `short_description` varchar(255)  NOT NULL,
-  `website` varchar(255)  DEFAULT '#',
-  `linkedin` varchar(255)  DEFAULT '#',
-  `facebook` varchar(255)  DEFAULT '#',
+  `name` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `short_description` varchar(255) NOT NULL,
+  `website` varchar(255) DEFAULT '#',
+  `linkedin` varchar(255) DEFAULT '#',
+  `facebook` varchar(255) DEFAULT '#',
   `status` tinyint(1) DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -518,14 +520,14 @@ CREATE TABLE `team_members` (
 
 CREATE TABLE `testimonials` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `role` varchar(255)  NOT NULL,
-  `avatar` varchar(255)  DEFAULT NULL,
-  `content` varchar(255)  NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `content` varchar(255) NOT NULL,
   `status` tinyint(1) DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `testimonials`
@@ -544,14 +546,14 @@ INSERT INTO `testimonials` (`id`, `name`, `role`, `avatar`, `content`, `status`,
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255)  NOT NULL,
-  `email` varchar(255)  NOT NULL,
-  `password` varchar(255)  NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `remember_token` varchar(100)  DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -765,7 +767,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tags`
