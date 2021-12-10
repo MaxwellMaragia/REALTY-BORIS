@@ -56,23 +56,23 @@
                             <div class="col-md-offset-3 col-md-6">
 
 
+{{--                                <div class="form-group ">--}}
+{{--                                    <div class="form-group" style="background-color: black;">--}}
+{{--                                        <img src="{{ Storage::url($logo_dark->value) }}"  alt="User Image" id="preview" width="20%;" onchange="previewImage(this)">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="file">--}}
+{{--                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload dark logo</label>--}}
+{{--                                        <input type="file" name="logo_dark" accept="image/*" class="form-control" id="darklogo">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+
                                 <div class="form-group ">
                                     <div class="form-group" style="background-color: black;">
-                                        <img src="{{ Storage::url($logo_dark->value) }}"  alt="User Image" id="preview" width="20%;" onchange="previewImage(this)">
-                                    </div>
-                                    <div class="file">
-                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload dark logo</label>
-                                        <input type="file" name="logo_dark" accept="image/*" class="form-control" id="darklogo">
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group ">
-                                    <div class="form-group ">
                                         <img src="{{ Storage::url($logo_light->value) }}"  alt="User Image" id="preview1" onchange="previewImage(this)">
                                     </div>
                                     <div class="file">
-                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload light logo</label>
+                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload logo</label>
                                         <input type="file" name="logo_light" accept="image/*" class="form-control" id="lightlogo">
                                     </div>
                                 </div>
@@ -130,6 +130,16 @@
                                 <div class="form-group">
                                     <label for="slug">Map url</label>
                                     <input type="url" class="form-control" id="slug" name="map" placeholder="Google map address" required="required" value="{{ $map->value }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Home banner button text</label>
+                                    <input type="text" class="form-control" name="button_text" placeholder="eg Watch Youtube" value="{{ $button_text->value }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Home banner button url</label>
+                                    <input type="text" class="form-control" name="button_url" placeholder="eg youtube video link" value="{{ $button_url->value }}">
                                 </div>
                             </div>
                         </div>

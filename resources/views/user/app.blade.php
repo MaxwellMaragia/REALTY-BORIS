@@ -53,7 +53,7 @@
 {{--    @include('user/layouts/navhome')--}}
 {{--@endif--}}
 <!-- end header -->
-    @include('user/layouts/navhome')
+    @include('user.layouts.navdesktop')
 @section('main-content')
 @show
 

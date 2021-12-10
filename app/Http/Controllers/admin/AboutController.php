@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\settings;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -19,9 +20,9 @@ class AboutController extends Controller
         $first_image = settings::where('name', 'first_image')->first();
         $second_image = settings::where('name', 'second_image')->first();
         $about_text = settings::where('name', 'about_text')->first();
-        $our_history = settings::where('name', 'our_history')->first();
+        $our_history_text = settings::where('name', 'our_history_text')->first();
 
-        return view('admin.settings.about',compact('first_image','second_image','about_text','our_history'));
+        return view('admin.settings.about',compact('first_image','second_image','about_text','our_history_text'));
     }
 
     public function store(Request $request)
@@ -57,13 +58,14 @@ class AboutController extends Controller
         $about_text->value = $request->about_text;
         $about_text->save();
 
-        $our_history = settings::where('name','our_history')->first();
-        $our_history->value = $request->our_history;
-        $our_history->save();
+        $our_history_text = settings::where('name','our_history_text')->first();
+        $our_history_text->value = $request->our_history_text;
+        $our_history_text->save();
 
         $carousel_images = $request->file('carousel');
         if($request->hasFile('carousel'))
         {
+            Storage::deleteDirectory('public/files/our-brokerage');
             foreach ($carousel_images as $carousel_image) {
                 $carousel_image->store('public/files/our-brokerage');
             }

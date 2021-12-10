@@ -51,14 +51,16 @@ class HomeController extends Controller
     public function home()
     {
         $seo = seo::where('page','home')->first();
-
         $services = service::where('status',1)->get();
         $banners = banner::where('status',1)->get();
         $reviews = testimonials::where('status',1)->get();
         $featured_properties = property::where('featured',1)->where('status',1)->whereNull('new_development')->take(6)->get();
         $posts = post::where('status',1)->take(3)->get();
-
-        return view('user.home',compact('banners','featured_properties','services','seo','reviews','posts'));
+        $featured_listings = settings::where('name','featured_listings')->first();
+        $boris_yelstine = settings::where('name','boris_yelstine')->first();
+        $button_text = settings::where('name','button_text')->first();
+        $button_url = settings::where('name','button_url')->first();
+        return view('user.home',compact('banners','featured_properties','services','seo','reviews','posts','featured_listings','boris_yelstine','button_text','button_url'));
     }
 
     public function blog()
@@ -66,18 +68,23 @@ class HomeController extends Controller
         $seo = seo::where('page','blog')->first();
         $tags = tag::all();
         $categories = category::all();
+        $background = settings::where('name','background')->first();
         $posts = post::where('posts.status','1')->orderBy('posts.created_at','DESC')->paginate(6);
         $featured = post::where('featured',1 AND 'status',1)->get();
-        return view('user.blog',compact('posts','featured','seo','tags','categories'));
+        return view('user.blog',compact('posts','featured','seo','tags','categories','background'));
     }
 
     public function about(){
         $seo = seo::where('page','about')->first();
         $second_image = settings::where('name','second_image')->first();
         $about_text = settings::where('name','about_text')->first();
-        $our_history = settings::where('name','our_history')->first();
+        $our_history_text = settings::where('name','our_history_text')->first();
+        $background = settings::where('name','background')->first();
         $images = Storage::disk('public')->files('files/our-brokerage');
-        return view('user.about',compact('seo','second_image','our_history','about_text','images'));
+        $realty_boris = settings::where('name','realty_boris')->first();
+        $our_brokerage = settings::where('name','our_brokerage')->first();
+        $our_history = settings::where('name','our_history')->first();
+        return view('user.about',compact('seo','second_image','our_history_text','about_text','images','background','realty_boris','our_brokerage','our_history'));
     }
 
     public function post(post $post){
@@ -86,7 +93,8 @@ class HomeController extends Controller
         $user = User::where('id',$user_id)->first();
         $tags = tag::all();
         $categories = category::all();
-        return view('user.post',compact('post','user','tags','categories'));
+        $background = settings::where('name','background')->first();
+        return view('user.post',compact('post','user','tags','categories','background'));
     }
 
     public function service(service $service)
@@ -103,40 +111,23 @@ class HomeController extends Controller
     }
 
     public function properties(){
-        $properties = property::where('status',1)->whereNull('new_development')->paginate(6);
+        $properties = property::where('status',1)->whereNull('new_development')->paginate(10);
         $seo = seo::where('page','properties')->first();
-        return view('user.properties',compact('properties','seo'));
+        $background = settings::where('name','background')->first();
+        return view('user.properties',compact('properties','seo','background'));
     }
 
     public function developments(){
-        $properties = property::where('status',1)->where('new_development',1)->paginate(6);
+        $properties = property::where('status',1)->where('new_development',1)->paginate(10);
         $seo = seo::where('page','properties')->first();
-        return view('user.developments',compact('properties','seo'));
-    }
-
-    public function location(location $location){
-        $selected_location = $location;
-        $properties = $location->properties()->paginate(6);
-        $seo = seo::where('page','properties')->first();
-        $locations = location::all();
-        return view('user.location',compact('properties','locations','seo','selected_location'));
-    }
-
-    public function buy(){
-        $seo = seo::where('page','Home')->first();
-        $properties = property::where('Property_status','For sale')->paginate();
-        return view('user.buy',compact('properties','seo'));
-    }
-
-    public function rent(){
-        $seo = seo::where('page','Home')->first();
-        $properties = property::where('Property_status','For rent')->paginate();
-        return view('user.rent',compact('properties','seo'));
+        $background = settings::where('name','background')->first();
+        return view('user.developments',compact('properties','seo','background'));
     }
 
     public function contact(){
         $seo = seo::where('page','contact')->first();
-        return view('user.contact',compact('seo'));
+        $background = settings::where('name','background')->first();
+        return view('user.contact',compact('seo','background'));
     }
 
     public function tag(tag $tag)
@@ -145,7 +136,8 @@ class HomeController extends Controller
         $categories = category::all();
         $seo = seo::where('page','blog')->first();
         $posts = $tag->posts();
-        return view('user.tag',compact('posts','tags','categories','seo','tag'));
+        $background = settings::where('name','background')->first();
+        return view('user.tag',compact('posts','tags','categories','seo','tag','background'));
     }
 
     public function category(category $category)
@@ -154,7 +146,8 @@ class HomeController extends Controller
         $categories = category::all();
         $posts = $category->posts();
         $seo = seo::where('page','blog')->first();
-        return view('user.category',compact('posts','tags','seo','categories','category'));
+        $background = settings::where('name','background')->first();
+        return view('user.category',compact('posts','tags','seo','categories','category','background'));
     }
 
     public function download(Download $download){
@@ -173,14 +166,4 @@ class HomeController extends Controller
         $results = post::whereRaw('MATCH (keywords) AGAINST (?)' , $keywords)->paginate(6);
         return view('user.search',compact('results','keywords'));
     }
-
-    public function csd(case_study $case_study)
-    {
-        return view('user.case_study',compact('case_study'));
-    }
-
-    public function error_404(){
-        return view('user.404');
-    }
-
 }

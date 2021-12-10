@@ -71,13 +71,8 @@
                                             <input type="text" class="form-control"  id="price" name="price" placeholder="eg 6,000,000" required="required" value="{{ old('price') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Select feature/s<span class="text-danger">*</span></label>
-                                            <select class="form-control select2" multiple="multiple" data-placeholder="Select features"
-                                                    style="width: 100%;" name="features[]" required="required">
-                                                @foreach($features as $feature)
-                                                    <option value="{{ $feature->id }}">{{ $feature->name }}</option>
-                                                @endforeach
-                                            </select>
+                                            <label>Youtube video link</label>
+                                            <input type="url" class="form-control" name="video" placeholder="Youtube video link" value="{{ old('video') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -166,7 +161,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="video">Upload carousel images <span class="text-danger">(height must be 533px)</span></label>
+                                            <label for="video">Upload gallery images <span class="text-danger">(height must be 533px)</span></label>
                                             <input type="file" name="carousel[]" class="form-control" multiple accept="image/*" required="required"/>
                                         </div>
                                     </div>

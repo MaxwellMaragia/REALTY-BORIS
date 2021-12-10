@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+Route::get('/storagelink', function () { $targetFolder = base_path().'/storage/app/public'; $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage'; symlink($targetFolder, $linkFolder); });
 
 Route::group(['namespace' => 'admin'], function (){
 
@@ -22,14 +22,13 @@ Route::group(['namespace' => 'admin'], function (){
     Route::resource('admin/seo','SeoController');
     Route::resource('admin/settings','SettingsController');
     Route::resource('admin/about','AboutController');
+    Route::resource('admin/images','ImageController');
     Route::resource('admin/features','FeaturesController');
     Route::resource('admin/locations','LocationsController');
     Route::resource('admin/properties','PropertyController');
     Route::resource('admin/testimonials','ReviewController');
     Route::resource('admin/portfolios','PortfolioController');
     Route::resource('admin/members','TeamController');
-    Route::get('admin/upload-images', 'DropzoneController@dropzone');
-    Route::get('admin/images', 'DropzoneController@images');
     Route::post('admin/images/store', 'DropzoneController@dropzoneStore')->name('dropzone.store');
     Route::post('admin/images/delete', 'DropzoneController@dropzoneDelete')->name('dropzone.delete');
 

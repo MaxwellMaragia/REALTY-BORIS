@@ -21,6 +21,7 @@ class property extends Model
         'bedroom',
         'bathroom',
         'image',
+        'video',
         'featured',
         'status',
         'new_development',

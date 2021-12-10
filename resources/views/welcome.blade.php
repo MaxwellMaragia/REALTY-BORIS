@@ -20,7 +20,7 @@
 <body>
 <div class="box-layout">
     <!-- start header -->
-@include('user/layouts/nav')
+@include('user.layouts.navmobile')
 <!-- end header -->
     <!-- start slider section -->
     <section class="no-padding main-slider height-100 mobile-height wow fadeIn">

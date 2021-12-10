@@ -19,7 +19,7 @@
 
 @section('main-content')
     <!-- Inner Banner Start -->
-    <div class="at-haslayout at-innerbannerholder">
+    <div class="at-haslayout at-innerbannerholder" style="background: url({{ Storage::url($background->value) }})">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-12 col-md-12">

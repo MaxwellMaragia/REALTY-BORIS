@@ -116,7 +116,7 @@
             transform-origin: center;
             text-align: center;
             cursor: pointer;
-            background-color: rgba(27, 27, 27, 1);
+            background-color: #0D5B33;
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -127,7 +127,7 @@
 
         .show-hide-btn:hover {
             background-color: rgba(255, 255, 255, 1);
-            color: rgba(27, 27, 27, 1);
+            color: #0D5B33;
         }
 
         .properties-single-slideshow-info-address {
@@ -427,6 +427,10 @@
                             SHOWING</a>
                         <a href="{{ url('properties') }}" class="at-btn at-btnactive outline-button">VIEW MORE
                             LISTINGS</a>
+                        @if(!is_null($property->video))
+                            <a href="{{ $property->video }}" class="at-btn at-btnactive outline-button" data-rel="prettyPhoto[video]">
+                                VIEW ON YOUTUBE</a>
+                            @endif
 
 
                         <div class="share ">
@@ -439,6 +443,17 @@
                                 Tweet</a>
                         </div>
 
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="margin-top:70px;">
+                        @foreach($images as $image)
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-right: 4px;padding-left: 4px;">
+                                <a href="{{ Storage::url($image) }}" data-rel="prettyPhoto[gallery]">
+                                    <img src="{{ Storage::url($image) }}" alt="image" style="width: 100%; margin-top:8px;">
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

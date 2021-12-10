@@ -42,8 +42,8 @@
             </span>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="{{ route('features.index') }}"><i class="fa fa-circle-o"></i> Features</a></li>
-                  <li><a href="{{ route('properties.index') }}"><i class="fa fa-circle-o"></i> Properties</a></li>
+                  <li><a href="{{ route('properties.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
+                  <li><a href="{{ route('properties.index') }}"><i class="fa fa-circle-o"></i> View existing</a></li>
               </ul>
           </li>
 
@@ -71,6 +71,7 @@
               <ul class="treeview-menu">
                   <li><a href="{{ route('settings.index') }}"><i class="fa fa-circle-o"></i> General settings</a></li>
                   <li><a href="{{ route('about.index') }}"><i class="fa fa-circle-o"></i> About us page</a></li>
+                  <li><a href="{{ route('images.index') }}"><i class="fa fa-circle-o"></i> Image settings</a></li>
               </ul>
           </li>
     </ul>

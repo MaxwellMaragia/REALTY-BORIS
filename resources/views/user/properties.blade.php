@@ -19,7 +19,7 @@
 
 @section('main-content')
     <!-- Inner Banner Start -->
-    <div class="at-haslayout at-innerbannerholder">
+    <div class="at-haslayout at-innerbannerholder" style="background: url({{ Storage::url($background->value) }})">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-12 col-md-12">
@@ -41,7 +41,7 @@
             <div class="row justify-content-center">
                 <div class="at-category-gallery at-haslayout" id="featured-properties" style="margin-top:-80px;">
                     @foreach($properties as $featured)
-                        <div class="col-sm-12 col-md-6 col-lg-6 float-left tr-trip-imgs" style="margin-top:1.5px;margin-right: -28px;">
+                        <div class="col-sm-12 col-md-6 col-lg-6 float-left tr-trip-imgs bottom" style="margin-top:1.5px;margin-right: -28px;">
                             <figure>
                                 <a href="{{ route('property',$featured->slug) }}">
                                     <img src="{{ Storage::url($featured->image) }}" alt="img description">

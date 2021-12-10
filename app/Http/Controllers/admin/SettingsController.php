@@ -29,8 +29,10 @@ class SettingsController extends Controller
             $youtube = settings::where('name', 'youtube')->first();
             $address = settings::where('name', 'address')->first();
             $map = settings::where('name', 'map')->first();
+            $button_text = settings::where('name', 'button_text')->first();
+            $button_url = settings::where('name', 'button_url')->first();
 
-            return view('admin.settings.setting',compact('logo_dark','facebook','logo_light','favicon','email','whatsapp','instagram','twitter','youtube','mobile','address','map'));
+            return view('admin.settings.setting',compact('logo_dark','facebook','logo_light','favicon','email','whatsapp','instagram','twitter','youtube','mobile','address','map','button_text','button_url'));
 
 
 
@@ -124,6 +126,14 @@ class SettingsController extends Controller
         $map = settings::where('name','map')->first();
         $map->value = $request->map;
         $map->save();
+
+        $button_text = settings::where('name','button_text')->first();
+        $button_text->value = $request->button_text;
+        $button_text->save();
+
+        $button_url = settings::where('name','button_url')->first();
+        $button_url->value = $request->button_url;
+        $button_url->save();
 
         return redirect()->back()->with('success','Settings updated successfully');
     }

@@ -71,21 +71,10 @@
                                             <input type="text" class="form-control" id="price" name="price" placeholder="eg 20,000/month" required="required" value="{{ $property->price }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Select feature/s<span class="text-danger">*</span></label>
-                                            <select class="form-control select2" multiple="multiple" data-placeholder="Select features"
-                                                    style="width: 100%;" name="features[]" required="required">
-                                                @foreach($features as $feature)
-                                                    <option value="{{ $feature->id }}"
-                                                            @foreach($property->features as $propertyfeature)
-                                                            @if($propertyfeature->id == $feature->id)
-                                                            selected
-                                                        @endif
-                                                        @endforeach
-                                                    >
-                                                        {{ $feature->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <div class="form-group">
+                                                <label>Youtube video link</label>
+                                                <input type="url" class="form-control" name="video" placeholder="Youtube video link" value="{{ $property->video }}">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">

@@ -138,7 +138,7 @@
                                     <h1><span>Find Exotic &amp; Affordable</span></h1>
                                 </div>
                                 <div class="at-description bottom">
-                                    <a href="{{ url('properties') }}" class="at-btn at-btnactive outline-button">Start Exploring</a>
+                                    <a href="{{ $button_url->value }}" class="at-btn at-btnactive outline-button" data-rel="prettyPhoto[video]">{{ $button_text->value }}</a>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                 <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center  tr-trip-imgs hidden-sm hidden-xs" style="margin-top:1.5px;">
                     <div class="at-sectionhead">
                         <div class="at-sectiontitle from-left" style="padding-top: 30px;" >
-                                <img src="{{ asset('Featured Listings.png') }}" alt="" id="featured-listings" class="float-md-right float-lg-right"><br>
+                                <img src="{{ Storage::url($featured_listings->value) }}" alt="" id="featured-listings" class="float-md-right float-lg-right"><br>
                             <a href="{{ url('properties') }}" class="outline-button float-md-right float-lg-right">View all properties +</a>
                         </div>
                     </div>
@@ -193,15 +193,15 @@
                     <div class="col-md-12">
                         <div id="about-me-box">
                             <div class="row justify-content-center" >
-                                <div class="col-md-5 col-xs-12 boris from-right">
+                                <div class="col-md-5 col-xs-12 boris from-left">
                                     <img class="max-width-xs " src="{{ asset('boris.jpg') }}" style="width: 100%"/>
                                 </div><!-- end col-md-7 -->
                                 <div class="col-md-7 col-xs-12" style="background: #ffffff;">
                                     <div class="text-center top" id="about-realty-header" style="padding-top: 90px;">
-                                        <img src="{{ asset('Realty Boris.png') }}" alt="">
+                                        <img src="{{ Storage::url($boris_yelstine->value) }}" alt="">
                                     </div>
                                     <div class="container">
-                                        <p id="about-realty from-right">
+                                        <p id="about-realty" class="from-right">
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
                                             <br>more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                             <br>

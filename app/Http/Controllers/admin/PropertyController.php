@@ -44,6 +44,7 @@ class PropertyController extends Controller
             'slug'=>str::slug($request->title),
             'price'=>$request->price,
             'size'=>$request->size,
+            'video'=>$request->video,
             'bedroom'=>$request->bedroom,
             'bathroom'=>$request->bathroom,
             'featured'=>$request->featured,
@@ -73,8 +74,6 @@ class PropertyController extends Controller
                 $carousel_image->store($directory . '/carousel');
             }
         }
-
-        $property->features()->sync($request->features);
 
         return redirect()->back()->with('success',"Property added successfully");
 
@@ -121,6 +120,7 @@ class PropertyController extends Controller
             'price'=>$request->price,
             'size'=>$request->size,
             'image'=>$image,
+            'video'=>$request->video,
             'bedroom'=>$request->bedroom,
             'bathroom'=>$request->bathroom,
             'featured'=>$request->featured,
@@ -134,8 +134,6 @@ class PropertyController extends Controller
         );
 
         $property->update($data);
-        $property->features()->sync($request->features);
-
         return redirect()->back()->with('success',"Property added successfully");
 
     }
