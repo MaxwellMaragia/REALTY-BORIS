@@ -34,12 +34,23 @@
             </div>
         </div>
     </div>
+
     <!-- Home Slider End -->
     <!-- Recommended Section Start -->
     <section class="at-haslayout at-main-section at-sectionbg" id="at-haslayout" >
         <div class="container">
             <div class="row justify-content-center">
                 <div class="at-category-gallery at-haslayout" id="featured-properties" style="margin-top:-80px;">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="at-tagsshare-holder" style="margin-bottom:40px;">
+                            <ul class="at-widgettag">
+                                <li><a href="{{ url('properties') }}" style="background-color:#018038;color: #fff;">All</a></li>
+                                @foreach($locations as $location)
+                                    <li><a href="{{ route('location',$location->slug) }}">{{ $location->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                     @foreach($properties as $featured)
                         <div class="col-sm-12 col-md-6 col-lg-6 float-left tr-trip-imgs bottom" style="margin-top:1.5px;margin-right: -28px;">
                             <figure>

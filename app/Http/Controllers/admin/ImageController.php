@@ -21,9 +21,11 @@ class ImageController extends Controller
             $realty_boris = settings::where('name', 'realty_boris')->first();
             $our_brokerage = settings::where('name', 'our_brokerage')->first();
             $our_history = settings::where('name', 'our_history')->first();
+            $our_reviews = settings::where('name', 'our_reviews')->first();
+            $our_articles = settings::where('name', 'our_articles')->first();
             $background = settings::where('name', 'background')->first();
 
-            return view('admin.settings.images',compact('featured_listings','boris_yelstine','realty_boris','our_brokerage','our_history','background'));
+            return view('admin.settings.images',compact('featured_listings','boris_yelstine','realty_boris','our_brokerage','our_history','background','our_reviews','our_articles'));
         }
 
         public function store(Request $request)
@@ -35,6 +37,8 @@ class ImageController extends Controller
                 'our_brokerage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'our_history' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'background' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+                'our_reviews' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+                'our_articles' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             ]);
 
             if($request->hasFile('featured_listings'))
@@ -70,6 +74,20 @@ class ImageController extends Controller
                 $our_history = settings::where('name','our_history')->first();
                 $our_history->value = $request->our_history->store('public/files/settings');
                 $our_history->save();
+            }
+
+            if($request->hasFile('our_reviews'))
+            {
+                $our_reviews = settings::where('name','our_reviews')->first();
+                $our_reviews->value = $request->our_reviews->store('public/files/settings');
+                $our_reviews->save();
+            }
+
+            if($request->hasFile('our_articles'))
+            {
+                $our_articles = settings::where('name','our_articles')->first();
+                $our_articles->value = $request->our_articles->store('public/files/settings');
+                $our_articles->save();
             }
 
             if($request->hasFile('background'))

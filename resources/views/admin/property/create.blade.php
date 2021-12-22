@@ -92,6 +92,15 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
+                                            <label for="title">Location</label>
+                                            <select name="location" id="" class="form-control" required="required">
+                                                <option value="">Select location</option>
+                                                @foreach($locations as $location)
+                                                    <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                                    @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="slug">Upcoming developments</label><br>
                                             <div class="checkbox">
                                                 <label><input type="checkbox" value="1" name="new_development" id="new_development"
@@ -105,6 +114,7 @@
                                             <label for="title">Completion date</label>
                                             <input type="date" class="form-control" id="completion_date" name="completion_date" placeholder="Completion date"  value="{{ old('completion_date') }}" disabled="disabled" >
                                         </div>
+
                                     </div>
                                 </div>
 

@@ -17,8 +17,8 @@ class SettingsController extends Controller
 
     public function index()
     {
-            $logo_light = settings::where('name', 'logo_light')->first();
-            $logo_dark = settings::where('name', 'logo_dark')->first();
+            $logo_desktop = settings::where('name', 'logo_desktop')->first();
+            $logo_mobile = settings::where('name', 'logo_mobile')->first();
             $favicon = settings::where('name', 'favicon')->first();
             $email = settings::where('name', 'email')->first();
             $mobile = settings::where('name', 'mobile')->first();
@@ -31,8 +31,9 @@ class SettingsController extends Controller
             $map = settings::where('name', 'map')->first();
             $button_text = settings::where('name', 'button_text')->first();
             $button_url = settings::where('name', 'button_url')->first();
+            $home_banner_text = settings::where('name','home_banner_text')->first();
 
-            return view('admin.settings.setting',compact('logo_dark','facebook','logo_light','favicon','email','whatsapp','instagram','twitter','youtube','mobile','address','map','button_text','button_url'));
+            return view('admin.settings.setting',compact('logo_mobile','facebook','logo_desktop','favicon','email','whatsapp','instagram','twitter','youtube','mobile','address','map','button_text','button_url','home_banner_text'));
 
 
 
@@ -41,39 +42,39 @@ class SettingsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'logo_light' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-            'logo_dark' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'logo_desktop' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'logo_mobile' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'logo_favicon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
         ]);
 
-        if($request->hasFile('logo_light'))
+        if($request->hasFile('logo_desktop'))
         {
-            $logo_light = settings::where('name','logo_light')->first();
+            $logo_desktop = settings::where('name','logo_desktop')->first();
 
-            $current_image = 'storage/files/settings/'.substr($logo_light->value,22);
+            $current_image = 'storage/files/settings/'.substr($logo_desktop->value,22);
 
             //delete old banner first
             if(file_exists($current_image))
             {
                 unlink($current_image);
             }
-            $logo_light->value = $request->logo_light->store('public/files/settings');
-            $logo_light->save();
+            $logo_desktop->value = $request->logo_desktop->store('public/files/settings');
+            $logo_desktop->save();
         }
 
-        if($request->hasFile('logo_dark'))
+        if($request->hasFile('logo_mobile'))
         {
-            $logo_dark = settings::where('name','logo_dark')->first();
+            $logo_mobile = settings::where('name','logo_mobile')->first();
 
-            $current_image = 'storage/files/settings/'.substr($logo_dark->value,22);
+            $current_image = 'storage/files/settings/'.substr($logo_mobile->value,22);
 
             //delete old banner first
             if(file_exists($current_image))
             {
                 unlink($current_image);
             }
-            $logo_dark->value = $request->logo_dark->store('public/files/settings');
-            $logo_dark->save();
+            $logo_mobile->value = $request->logo_mobile->store('public/files/settings');
+            $logo_mobile->save();
         }
 
         if($request->hasFile('favicon'))
@@ -134,6 +135,10 @@ class SettingsController extends Controller
         $button_url = settings::where('name','button_url')->first();
         $button_url->value = $request->button_url;
         $button_url->save();
+
+        $home_banner_text = settings::where('name','home_banner_text')->first();
+        $home_banner_text->value = $request->home_banner_text;
+        $home_banner_text->save();
 
         return redirect()->back()->with('success','Settings updated successfully');
     }

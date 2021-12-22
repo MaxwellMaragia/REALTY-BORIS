@@ -1949,17 +1949,15 @@ button.at-btn:focus{outline: none;}
 	width: 100%;
 }
 .tr-trip-imgs figure{
-	margin: 0;
-	width: 100%;
-	float: left;
-	background: #000;
-	border-radius: 4px;
-	overflow: hidden;
+    margin: 0;
+    width: 100%;
+    float: left;
+    background: #000;
+    overflow: hidden;
 }
 .tr-trip-imgs figure + figure{margin-top:30px; }
 .tr-trip-imgs figure img{
 	width: 100%;
-	opacity: 0.8;
 	display: block;
 	border-radius: 4px;
 }
@@ -5494,4 +5492,48 @@ i.at-color6{background: #e74c3c;}
 .at-collapseholder{
 	float: left;
 	width: 100%;
+}
+
+.at-description-about p{
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 26px;
+    color: #666666;
+}
+
+.at-description-about p::first-letter {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: 105px;
+    font-weight: 600;
+    line-height: 87px;
+    float: left;
+    color: #1b1b1b;
+    text-transform: uppercase;
+    padding-right: 8px;
+    /* padding-bottom: 26px; */
+}
+
+#brokerage-wrap{
+    background: #D2D2D2;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 72px 0 82px;
+    font-size: 0;
+    margin: 18px 0 78px;
+}
+
+#team-image img{
+    margin-top:-80px !important;
+}
+
+.at-description-about p {
+    column-count: 2;
+    padding: 30px 30px 40px;
+}
+#our_reviews{
+    width: 58%;
+}
+#our_articles{
+    width: 30%;
 }

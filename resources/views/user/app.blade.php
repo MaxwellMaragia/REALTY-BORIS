@@ -13,7 +13,7 @@
 <div class="sticky-container">
     <ul class="sticky">
         <li>
-            <p><a href="{{ $facebook->value }}" target="_blank"></a><img src="{{ asset('facebook-circle.png')}}" width="32" height="32"></p>
+            <p><a href="{{ $facebook->value }}" target="_blank"><img src="{{ asset('facebook-circle.png')}}" width="32" height="32"></a></p>
         </li>
         <li>
 
@@ -53,7 +53,13 @@
 {{--    @include('user/layouts/navhome')--}}
 {{--@endif--}}
 <!-- end header -->
+{{--    @include('user.layouts.navdesktop')--}}
+@if($agent->isMobile())
+    @include('user.layouts.navmobile')
+@else
     @include('user.layouts.navdesktop')
+@endif
+
 @section('main-content')
 @show
 

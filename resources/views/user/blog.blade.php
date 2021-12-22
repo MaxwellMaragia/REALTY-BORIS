@@ -56,22 +56,14 @@
                                     <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                         <div class="at-article">
                                             <figure class="at-articleimg">
+                                                <a href="{{ route('post',$post->slug) }}">
                                                 <img src="{{ Storage::url($post->image) }}" alt="img description">
-                                                @if($post->featured == 1)
-                                                    <figcaption><a href="javascript:void(0);" class="at-tag">Featured</a></figcaption>
-                                                @endif
+                                                </a>
                                             </figure>
                                             <div class="at-article-content">
-                                                <div class="at-featured-tags">
-                                                    @foreach($post->categories as $category)
-                                                        <a href="{{ route('category',$category->slug) }}">{{  $category->name }}</a></a>
-                                                        @if( !$loop->last)
-                                                            ,
-                                                        @endif
-                                                    @endforeach
-                                                </div>
+
                                                 <div class="at-title">
-                                                    <h4>{{ $post->title }}</h4>
+                                                    <a href="{{ route('post',$post->slug) }}"> <h4>{{ $post->title }}</h4></a>
                                                     <span>{{ $post->created_at->toFormattedDateString() }}</span>
                                                 </div>
                                                 <div class="at-description">

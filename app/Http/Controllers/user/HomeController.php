@@ -22,6 +22,7 @@ use App\User;
 use App\settings;
 use App\Model\admin\seo;
 use Illuminate\Foundation\Inspiring;
+use Jenssegers\Agent\Agent;
 
 
 class HomeController extends Controller
@@ -29,8 +30,8 @@ class HomeController extends Controller
     //
     public function __construct()
     {
-        View::share('logo_light', settings::where('name','logo_light')->first());
-        View::share('logo_dark', settings::where('name','logo_dark')->first());
+        View::share('logo_desktop', settings::where('name','logo_desktop')->first());
+        View::share('logo_mobile', settings::where('name','logo_mobile')->first());
         View::share('favicon', settings::where('name','favicon')->first());
         View::share('email', settings::where('name','email')->first());
         View::share('mobile', settings::where('name','mobile')->first());
@@ -44,6 +45,8 @@ class HomeController extends Controller
         View::share('footer_text', settings::where('name','footer_text')->first());
         View::share('map', settings::where('name','map')->first());
         View::share('first_image', settings::where('name','first_image')->first());
+        View::share('agent', new Agent());
+
 
     }
 
@@ -58,9 +61,13 @@ class HomeController extends Controller
         $posts = post::where('status',1)->take(3)->get();
         $featured_listings = settings::where('name','featured_listings')->first();
         $boris_yelstine = settings::where('name','boris_yelstine')->first();
+        $our_reviews = settings::where('name','our_reviews')->first();
+        $our_articles = settings::where('name','our_articles')->first();
         $button_text = settings::where('name','button_text')->first();
         $button_url = settings::where('name','button_url')->first();
-        return view('user.home',compact('banners','featured_properties','services','seo','reviews','posts','featured_listings','boris_yelstine','button_text','button_url'));
+        $home_banner_text = settings::where('name','home_banner_text')->first();
+        return view('user.home',compact('banners','featured_properties','services','seo','reviews','posts','featured_listings','boris_yelstine','button_text','button_url',
+        'home_banner_text','our_articles','our_reviews'));
     }
 
     public function blog()
@@ -114,7 +121,8 @@ class HomeController extends Controller
         $properties = property::where('status',1)->whereNull('new_development')->paginate(10);
         $seo = seo::where('page','properties')->first();
         $background = settings::where('name','background')->first();
-        return view('user.properties',compact('properties','seo','background'));
+        $locations = location::all();
+        return view('user.properties',compact('properties','seo','background','locations'));
     }
 
     public function developments(){
@@ -165,5 +173,12 @@ class HomeController extends Controller
         $keywords = $request->keywords;
         $results = post::whereRaw('MATCH (keywords) AGAINST (?)' , $keywords)->paginate(6);
         return view('user.search',compact('results','keywords'));
+    }
+
+    public function location(location $location){
+        $properties = $location->properties()->paginate(10);
+        $selected_location = $location;
+        $locations = location::all();
+        return view('user.location',compact('properties','selected_location','locations'));
     }
 }

@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('headSection')
-    <link rel="stylesheet" href="{{ asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    <link rel="stylesheet"
+          href="{{ asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endsection
 @section('main-content')
 
@@ -21,7 +22,8 @@
 
             <div class="box">
                 <div class="box-header">
-                      <a href="{{ route('properties.create') }}" class="btn btn-primary"><span class="fa fa-plus"></span>   Add new</a>
+                    <a href="{{ route('properties.create') }}" class="btn btn-primary"><span class="fa fa-plus"></span>
+                        Add new</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -32,6 +34,7 @@
                             <tr>
                                 <th>Image</th>
                                 <th>Title</th>
+                                <th>Location</th>
                                 <th>Price</th>
                                 <th>Bedrooms</th>
                                 <th>Bathrooms</th>
@@ -48,18 +51,19 @@
                                     <td>
                                         <img
 
-                                                @if($property->image)
-                                                src="{{ Storage::url($property->image) }}"
-                                                @else
-                                                src="{{ Storage::url('public/noimage.jpg') }}"
-                                                @endif
+                                            @if($property->image)
+                                            src="{{ Storage::url($property->image) }}"
+                                            @else
+                                            src="{{ Storage::url('public/noimage.jpg') }}"
+                                            @endif
 
-                                                alt="" height="70px" width="70px">
+                                            alt="" height="70px" width="70px">
                                     </td>
 
                                     <td>
                                         <strong>{{ $property->title }}</strong>
                                     </td>
+                                    <td>{{ $property->property_location->name }}</td>
                                     <td>{{ $property->price }}</td>
                                     <td>{{ $property->bedroom }}</td>
                                     <td>{{ $property->bathroom }}</td>
@@ -86,20 +90,25 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a data-toggle="tooltip" data-placement="bottom" title="Edit" href="{{ route('properties.edit',$property->id) }}" class="badge bg-light-blue " disabled><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                        <form id="delete-form-{{ $property->id }}" action="{{ route('properties.destroy',$property->id) }}" style="display: none;" method="post">
+                                        <a data-toggle="tooltip" data-placement="bottom" title="Edit"
+                                           href="{{ route('properties.edit',$property->id) }}"
+                                           class="badge bg-light-blue " disabled><i class="fa fa-pencil-square-o"
+                                                                                    aria-hidden="true"></i></a>
+                                        <form id="delete-form-{{ $property->id }}"
+                                              action="{{ route('properties.destroy',$property->id) }}"
+                                              style="display: none;" method="post">
                                             {{@csrf_field()}}
                                             {{@method_field('DELETE')}}
                                         </form>
                                         <a data-toggle="tooltip" data-placement="bottom" title="Delete" onclick="
-                                                if(confirm('Are you sure you want to delete this property?'))
-                                                {event.preventDefault();
-                                                document.getElementById('delete-form-{{ $property->id }}').submit();
-                                                }
-                                                else{
-                                                event.preventDefault();
-                                                }
-                                                " class="badge bg-red"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            if(confirm('Are you sure you want to delete this property?'))
+                                            {event.preventDefault();
+                                            document.getElementById('delete-form-{{ $property->id }}').submit();
+                                            }
+                                            else{
+                                            event.preventDefault();
+                                            }
+                                            " class="badge bg-red"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -108,6 +117,7 @@
                             <tr>
                                 <th>Image</th>
                                 <th>Title</th>
+                                <th>Location</th>
                                 <th>Price</th>
                                 <th>Bedrooms</th>
                                 <th>Bathrooms</th>
@@ -136,12 +146,12 @@
         $(function () {
             $('#example1').DataTable()
             $('#example2').DataTable({
-                'paging'      : true,
+                'paging': true,
                 'lengthChange': false,
-                'searching'   : false,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
             })
         })
     </script>

@@ -6,7 +6,7 @@
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
                     <div class="at-fwidget">
                         <div class="at-fwidget-content">
-                            <img src="{{ Storage::url($logo_light->value) }}" alt="">
+                            <img src="{{ Storage::url($logo_desktop->value) }}" alt="">
                         </div>
                     </div>
                 </div>

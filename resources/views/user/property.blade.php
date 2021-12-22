@@ -410,7 +410,6 @@
             <li>{{ $property->bedroom }} <span class="icon-beds"></span> <em>Bedrooms</em></li>
             <li>{{ $property->bathroom }} <span class="icon-baths"></span> <em>Bathrooms</em></li>
             <li>{{ $property->size }} <span class="icon-sqft"></span> <em>SQ. FT.</em></li>
-
         </ul>
     </div>
 
@@ -463,9 +462,10 @@
     @section('additional-js')
         <script>
             $(document).ready(function () {
-                $(".show-hide-btn").click(function () {
+                $(".show-hide-btn").on('click',function () {
 
-                    if($(".show-hide-btn").text()==="HIDE DETAILS"){
+                    if(document.getElementsByClassName('show-hide-btn')[0].innerText==="HIDE DETAILS"){
+
                         $(".properties-single-slideshow-info").css('right',-350+'px');
                         $(".show-hide-btn").text("SHOW DETAILS");
                     }else{

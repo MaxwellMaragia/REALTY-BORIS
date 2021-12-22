@@ -94,6 +94,16 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
+                                            <label for="title">Location</label>
+                                            <select name="location" id="" class="form-control" required="required">
+                                                @foreach($locations as $location)
+                                                    <option value="{{ $location->id }}" @if($property->location == $location->id)
+                                                    selected
+                                                        @endif>{{ $location->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="slug">Set as new development</label><br>
                                             <div class="checkbox">
                                                 <label><input type="checkbox" value="1" name="new_development" id="new_development"

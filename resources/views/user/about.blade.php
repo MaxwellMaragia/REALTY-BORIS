@@ -16,70 +16,7 @@
     <meta name="revisit-after" content="{{ $seo->revisit_after }}">
 @endsection
 {{--end meta tags--}}
-@section('additional-css')
-    <style>
-        .at-description p{
-            font-size: 12px;
-            font-weight: 300;
-            line-height: 26px;
-            color: #666666;
-        }
 
-        .at-description p::first-letter {
-            font-family: "Barlow Semi Condensed", sans-serif;
-            font-size: 105px;
-            font-weight: 600;
-            line-height: 87px;
-            float: left;
-            color: #1b1b1b;
-            text-transform: uppercase;
-            padding-right: 8px;
-            /* padding-bottom: 26px; */
-        }
-
-        #brokerage-wrap{
-            background: #D2D2D2;
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 72px 0 82px;
-            font-size: 0;
-            margin: 18px 0 78px;
-        }
-
-        #team-image img{
-            margin-top:-80px !important;
-        }
-
-        @media (min-width: 768px) and (max-width: 991px) {
-
-            .hidden-sm {
-                display: none !important;
-            }
-        }
-
-        @media (min-width: 992px) and (max-width: 1199px) {
-            .hidden-md {
-                display: none !important;
-            }
-
-            .at-description p {
-                column-count: 2;
-                padding: 30px 30px 40px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .hidden-lg {
-                display: none !important;
-            }
-            .at-description p {
-                column-count: 2;
-                padding: 30px 30px 40px;
-            }
-        }
-    </style>
-@endsection
 @section('main-content')
     <!-- Inner Banner Start -->
     <div class="at-haslayout at-innerbannerholder" style="background: url({{ Storage::url($background->value) }})">
@@ -115,7 +52,7 @@
                                     <img src="{{ Storage::url($second_image->value) }}" alt="our team">
                                 </div>
                             </div>
-                            <div class="at-description bottom" >
+                            <div class="at-description at-description-about bottom" >
                                 {!! htmlspecialchars_decode($about_text->value) !!}
                             </div>
                         </div>

@@ -105,11 +105,31 @@
 
                                 <div class="form-group ">
                                     <div class="form-group ">
-                                        <img src="{{ Storage::url($background->value) }}"  alt="User Image" id="preview5" onchange="previewImage(this)" width="50%">
+                                        <img src="{{ Storage::url($our_reviews->value) }}"  alt="User Image" id="preview5" onchange="previewImage(this)" width="50%">
+                                    </div>
+                                    <div class="file">
+                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload our reviews image</label>
+                                        <input type="file" name="our_reviews" accept="image/*" class="form-control" id="sixth">
+                                    </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <div class="form-group ">
+                                        <img src="{{ Storage::url($our_articles->value) }}"  alt="User Image" id="preview6" onchange="previewImage(this)" width="50%">
+                                    </div>
+                                    <div class="file">
+                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload our articles image</label>
+                                        <input type="file" name="our_articles" accept="image/*" class="form-control" id="seventh">
+                                    </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <div class="form-group ">
+                                        <img src="{{ Storage::url($background->value) }}"  alt="User Image" id="preview7" onchange="previewImage(this)" width="50%">
                                     </div>
                                     <div class="file">
                                         <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload background image</label>
-                                        <input type="file" name="background" accept="image/*" class="form-control" id="sixthimage">
+                                        <input type="file" name="background" accept="image/*" class="form-control" id="eith">
                                     </div>
                                 </div>
 
@@ -166,8 +186,14 @@
         $("#fifthimage").change(function(){
             readURL(this,'#preview4');
         });
-        $("#sixthimage").change(function(){
+        $("#sixth").change(function(){
             readURL(this,'#preview5');
+        });
+        $("#seventh").change(function(){
+            readURL(this,'#preview6');
+        });
+        $("#eith").change(function(){
+            readURL(this,'#preview7');
         });
 
     </script>

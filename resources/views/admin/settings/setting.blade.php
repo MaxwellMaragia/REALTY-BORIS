@@ -56,24 +56,24 @@
                             <div class="col-md-offset-3 col-md-6">
 
 
-{{--                                <div class="form-group ">--}}
-{{--                                    <div class="form-group" style="background-color: black;">--}}
-{{--                                        <img src="{{ Storage::url($logo_dark->value) }}"  alt="User Image" id="preview" width="20%;" onchange="previewImage(this)">--}}
-{{--                                    </div>--}}
-{{--                                    <div class="file">--}}
-{{--                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload dark logo</label>--}}
-{{--                                        <input type="file" name="logo_dark" accept="image/*" class="form-control" id="darklogo">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="form-group ">
+                                    <div class="form-group" style="background-color: black;">
+                                        <img src="{{ Storage::url($logo_mobile->value) }}"  alt="User Image" id="preview" onchange="previewImage(this)">
+                                    </div>
+                                    <div class="file">
+                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload mobile logo <small class="text-warning"><b>65px height</b></small></label>
+                                        <input type="file" name="logo_mobile" accept="image/*" class="form-control" id="darklogo">
+                                    </div>
+                                </div>
 
 
                                 <div class="form-group ">
                                     <div class="form-group" style="background-color: black;">
-                                        <img src="{{ Storage::url($logo_light->value) }}"  alt="User Image" id="preview1" onchange="previewImage(this)">
+                                        <img src="{{ Storage::url($logo_desktop->value) }}"  alt="User Image" id="preview1" onchange="previewImage(this)">
                                     </div>
                                     <div class="file">
-                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload logo</label>
-                                        <input type="file" name="logo_light" accept="image/*" class="form-control" id="lightlogo">
+                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload desktop logo <small class="text-warning"><b>70px height</b></small></label>
+                                        <input type="file" name="logo_desktop" accept="image/*" class="form-control" id="lightlogo">
                                     </div>
                                 </div>
 
@@ -140,6 +140,11 @@
                                 <div class="form-group">
                                     <label>Home banner button url</label>
                                     <input type="text" class="form-control" name="button_url" placeholder="eg youtube video link" value="{{ $button_url->value }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Home banner title text</label>
+                                    <input type="text" class="form-control" name="home_banner_text" placeholder="eg The wolf of real estate" value="{{ $home_banner_text->value }}">
                                 </div>
                             </div>
                         </div>

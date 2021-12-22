@@ -1,9 +1,9 @@
 @media (max-width:1680px){
 	.at-footercs{min-width: 100%;}
 	.at-homeslidervone figure img{
-		height: 900px;
-		max-width: none;
-		width: auto !important;
+		/*height: 900px;*/
+		/*max-width: none;*/
+		/*width: auto !important;*/
 	}
 	.at-homeslider-thumbnail{max-width: 800px;}
 }
@@ -59,7 +59,8 @@
 	.at-thumbnail-content{padding:20px 20px 0; }
 	.active.current .at-thumbnail-content,
 	.at-thumbnail-content:hover{padding-bottom:20px; }
-	.at-homeslidervone figure img{height: 1000px;}
+    /*Changed*/
+	/*.at-homeslidervone figure img{height: 1000px;}*/
 	.at-home-bannervone .at-gueststitle{
 		width: 100%;
 		border-right: 0;
@@ -297,7 +298,7 @@
 	.at-nav {
 		float: left;
 		width: auto;
-		margin: 25px 0;
+		margin: 12px 0;
 	}
 	.at-recommended-gallery > div{
 		float: none !important;
@@ -355,7 +356,7 @@
 }
 @media (max-width:800px){
     #at-homeslidervone figure{
-        height: 650px;
+        height: auto;
     }
 	.at-topbar .at-loginoption,
 	.at-topbar .at-registeroption,
@@ -379,7 +380,7 @@
 }
 @media (max-width:767px){
     #at-homeslidervone figure{
-        height: 600px;
+        height: auto;
     }
 	.at-howitwork-holder > .at-howitwork:nth-child(odd) > .row > div:first-child,
 	.at-howitwork-holder > .at-howitwork:nth-child(even) > .row > div:last-child{margin-top: 26px;}
@@ -418,7 +419,7 @@
 		border-right: 0;
 		border-bottom: 1px solid #eee;
 	}
-	.at-slider-header{margin-bottom: 33px;}
+	.at-slider-header{margin-bottom: 110px;}
 	.at-home-bannervone .at-formbanner fieldset + fieldset{
 		width: 100%;
 		padding: 0;
@@ -486,13 +487,13 @@
 		width: 100%;
 		margin-top:10px;
 	}
-	.at-innerbannerholder{min-height: 450px;}
+
 	.at-innerbannersearch{margin-top: -124px;}
 	.at-advancedsearch-holder .at-searchradio > .at-title{padding: 0;}
 }
 @media (max-width:720px){
     #at-homeslidervone figure{
-        height: 600px;
+        height: auto;
     }
 	.at-loginarea .at-detailsbtn-topbar .at-btn{margin:0 -1px 0 -4px;}
 	/*.at-slider-header{display: none;}*/
@@ -540,8 +541,30 @@
 	.at-headervtwo .at-loginoption{padding-left:0; }
 }
 @media (max-width:640px){
+    .at-description-about p {
+        column-count: 1;
+        padding: 0 10px 0 10px;
+    }
+    #home-featured{
+        margin: 0 10px 3.5px 10px;
+    }
+    #about-me-box {
+        padding: 0;
+    }
+    #team-image{
+        margin:0;
+    }
+    #team-image img{
+        margin-top:0 !important;
+    }
     #at-homeslidervone figure{
-        height: 580px;
+        height: auto;
+    }
+    #our_reviews{
+        width: 80%;
+    }
+    #our_articles{
+        width: 70%;
     }
 	.at-room-radiovtwo .at-radio,
 	.at-room-radiovtwo .at-checkbox{width: 100%;}
@@ -603,7 +626,7 @@
 }
 @media (max-width:568px){
     #at-homeslidervone figure{
-        height: 580px;
+        height: auto;
     }
 	.at-comming-sooncounter li{padding: 0;}
 	.at-footercs .at-socialicons,
@@ -663,7 +686,7 @@
 }
 @media (max-width:480px){
     #at-homeslidervone figure{
-        height: 580px;
+        height: auto;
     }
     #about-realty{
         font-size: 15px;
@@ -713,7 +736,7 @@
 		font-size: 24px;
 		line-height: 1.1;
 	}
-	.at-homeslidervone figure img{height: 1000px;}
+	.at-homeslidervone figure img{height: 440px;width: 440px;}
 	.at-slider-content{padding: 30px 10px;}
 	.at-slider-content .at-title h2 span{font-size: 20px;}
 	.at-selectdate-holder{padding: 0;}
@@ -779,7 +802,7 @@
 }
 @media (max-width:420px){
     #at-homeslidervone figure{
-        height: 580px;
+        height: auto;
     }
 	.at-success-content .at-title h2{
 		padding: 0;
@@ -817,3 +840,27 @@
 	}
 }
 @media (max-width:340px){.at-footercs{padding: 25px 0;}}
+@media (max-width: 767px) {
+    .hidden-xs {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .hidden-sm {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .hidden-md {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hidden-lg {
+        display: none !important;
+    }
+}

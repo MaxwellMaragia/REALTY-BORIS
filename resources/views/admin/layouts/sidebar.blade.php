@@ -42,8 +42,8 @@
             </span>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="{{ route('properties.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
-                  <li><a href="{{ route('properties.index') }}"><i class="fa fa-circle-o"></i> View existing</a></li>
+                  <li><a href="{{ route('locations.index') }}"><i class="fa fa-circle-o"></i> Locations</a></li>
+                  <li><a href="{{ route('properties.index') }}"><i class="fa fa-circle-o"></i> Properties</a></li>
               </ul>
           </li>
 

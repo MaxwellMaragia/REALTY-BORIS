@@ -25,6 +25,7 @@ class property extends Model
         'featured',
         'status',
         'new_development',
+        'location',
         'description',
         'completion_date',
         'meta_title',

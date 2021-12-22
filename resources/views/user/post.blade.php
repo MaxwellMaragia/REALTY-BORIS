@@ -43,25 +43,8 @@
             <div class="container">
                 <div class="row">
                     <div id="at-twocolumns" class="at-twocolumns at-haslayout">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-4 float-right">
-                            <aside id="at-sidebar" class="at-sidebar float-left mt-md-0">
-                                <div class="at-sideholder">
-                                    <a href="javascript:void(0);" id="at-closesidebar" class="at-closesidebar"><i class="ti-close"></i></a>
-                                    <div class="at-sidescrollbar">
-                                        <div class="at-widgets-holder">
-                                            <div class="at-widgets-content">
-                                                <div class="at-sidebarinfo at-categories-holder">
-                                                    @foreach($categories as $category)
-                                                        <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </aside>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 float-left">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 float-left">
                             <div class="at-blogsingle">
                                 <div class="at-gridlist-option at-option-mt">
                                     <a href="javascript:void(0);" id="at-btnopenclose" class="at-btnopenclose"><i class="ti-settings"></i></a>
@@ -72,13 +55,7 @@
                                        {!! htmlspecialchars_decode($post->body) !!}
                                     </div>
                                 </div>
-                                <div class="at-tagsshare-holder">
-                                    <ul class="at-widgettag">
-                                        @foreach($tags as $tag)
-                                           <li><a href="{{ route('tag',$tag->slug) }}">{{ $tag->name }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+
                             </div>
                         </div>
                     </div>

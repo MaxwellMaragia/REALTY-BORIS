@@ -26,7 +26,8 @@ class PropertyController extends Controller
     public function create()
     {
         $features = feature::all();
-        return view('admin.property.create',compact('features'));
+        $locations = location::all();
+        return view('admin.property.create',compact('features','locations'));
     }
 
     public function store(Request $request)
@@ -50,6 +51,7 @@ class PropertyController extends Controller
             'featured'=>$request->featured,
             'status'=>$request->status,
             'new_development'=>$request->new_development,
+            'location'=>$request->location,
             'description'=>$request->description,
             'completion_date'=>$request->completion_date,
             'meta_title'=>$request->meta_title,
@@ -82,8 +84,8 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $property = property::where('id', $id)->first();
-        $features = feature::all();
-        return view('admin.property.edit', compact('property','features'));
+        $locations = location::all();
+        return view('admin.property.edit', compact('property','locations'));
     }
 
     public function update(Request $request, $id)
@@ -126,6 +128,7 @@ class PropertyController extends Controller
             'featured'=>$request->featured,
             'status'=>$request->status,
             'new_development'=>$request->new_development,
+            'location'=>$request->location,
             'description'=>$request->description,
             'completion_date'=>$request->completion_date,
             'meta_title'=>$request->meta_title,
