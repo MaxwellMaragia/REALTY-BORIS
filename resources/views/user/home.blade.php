@@ -173,7 +173,8 @@
                         <div class="at-sectiontitle from-left" style="padding-top: 30px;">
                             <img src="{{ Storage::url($featured_listings->value) }}" alt="" id="featured-listings"
                                  class="float-md-right float-lg-right view-all"><br>
-                            <a href="{{ url('properties') }}" class="outline-button float-md-right float-lg-right hidden-sm hidden-xs">View
+                            <a href="{{ url('properties') }}"
+                               class="outline-button float-md-right float-lg-right hidden-sm hidden-xs">View
                                 all properties +</a>
                         </div>
                     </div>
@@ -196,7 +197,7 @@
                     </div>
                 @endforeach
                 <a href="{{ url('properties') }}" class="at-btn at-btnactive outline-button hidden-md hidden-lg"
-                   >View all properties +</a>
+                >View all properties +</a>
             </div>
         </div>
     </section>
@@ -291,6 +292,7 @@
         </section>
         <!-- Top Categories Start -->
 
+
         <!-- Testimonials Start -->
         <section class="at-haslayout at-main-section at-sectionbg">
             <div class="container">
@@ -298,7 +300,7 @@
                     <div class="col-12 push-md-0 col-lg-10 push-lg-1 col-xl-8 push-xl-2">
                         <div class="at-sectionhead">
                             <div class="at-sectiontitle">
-                                <img src="{{ Storage::url($our_reviews->value) }}" alt=""  id="our_reviews">
+                                <img src="{{ Storage::url($our_reviews->value) }}" alt="" id="our_reviews">
                             </div>
 
                         </div>
@@ -334,6 +336,34 @@
         </section>
         <!-- Testimonials End -->
 
+
+        <section id="hp-performance" class="hp-performance">
+                        <span class="hidden">.</span>
+            <div class="performance-wrap" data-background-attachment-rollback="" style="margin-top:-10px;">
+                <div class="container">
+                    <div class="textwidget custom-html-widget">
+                        <div class="performance-title site-section-title">
+                           <span>
+{{--                              <img src="{{ Storage::url($performance->value) }}" alt="img description" width="40%">--}}
+
+                               <h2><small>04-</small>WHY WORK WITH US</h2>
+                           </span>
+                        </div>
+                        <ul class="performance-list done-calculation visible">
+                            <li class="fast">
+                                <span>$<i>2</i>+B</span>Total Sales<br>Made
+                            </li>
+                            <li>
+                                <span><i>44</i></span>Number of<br>Agents
+                            </li>
+                            <li>
+                                <span><i>760</i></span>Total<br>Transactions
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Articles Start -->
         <section class="at-haslayout at-main-section">
             <div class="containr">
@@ -351,7 +381,7 @@
                                 <div class="at-article">
                                     <figure class="at-articleimg">
                                         <a href="{{ route('post',$post->slug) }}">
-                                        <img src="{{ Storage::url($post->image)}}" alt="img description">
+                                            <img src="{{ Storage::url($post->image)}}" alt="img description">
                                         </a>
                                     </figure>
                                     <div class="at-article-content">

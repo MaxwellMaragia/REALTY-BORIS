@@ -24,8 +24,9 @@ class ImageController extends Controller
             $our_reviews = settings::where('name', 'our_reviews')->first();
             $our_articles = settings::where('name', 'our_articles')->first();
             $background = settings::where('name', 'background')->first();
+            $performance = settings::where('name', 'performance')->first();
 
-            return view('admin.settings.images',compact('featured_listings','boris_yelstine','realty_boris','our_brokerage','our_history','background','our_reviews','our_articles'));
+            return view('admin.settings.images',compact('featured_listings','boris_yelstine','realty_boris','our_brokerage','our_history','background','our_reviews','our_articles','performance'));
         }
 
         public function store(Request $request)
@@ -39,6 +40,7 @@ class ImageController extends Controller
                 'background' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'our_reviews' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                 'our_articles' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+                'performance' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             ]);
 
             if($request->hasFile('featured_listings'))
@@ -95,6 +97,13 @@ class ImageController extends Controller
                 $background = settings::where('name','background')->first();
                 $background->value = $request->background->store('public/files/settings');
                 $background->save();
+            }
+
+            if($request->hasFile('performance'))
+            {
+                $performance = settings::where('name','performance')->first();
+                $performance->value = $request->performance->store('public/files/settings');
+                $performance->save();
             }
 
             return redirect()->back()->with('success','Image settings updated successfully');

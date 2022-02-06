@@ -18,6 +18,9 @@
 	}
 	.at-comming-sooncounter li:nth-child(n+3){margin-top:10px; }
 	.at-homeslider-thumbnail{max-width: 600px;}
+    .site-section-title {
+        font-size: 87px;
+    }
 }
 @media (max-width: 1280px){
 	.at-comingsoonholder > div > div > div{

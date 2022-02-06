@@ -61,13 +61,14 @@ class HomeController extends Controller
         $posts = post::where('status',1)->take(3)->get();
         $featured_listings = settings::where('name','featured_listings')->first();
         $boris_yelstine = settings::where('name','boris_yelstine')->first();
+        $performance = settings::where('name','performance')->first();
         $our_reviews = settings::where('name','our_reviews')->first();
         $our_articles = settings::where('name','our_articles')->first();
         $button_text = settings::where('name','button_text')->first();
         $button_url = settings::where('name','button_url')->first();
         $home_banner_text = settings::where('name','home_banner_text')->first();
         return view('user.home',compact('banners','featured_properties','services','seo','reviews','posts','featured_listings','boris_yelstine','button_text','button_url',
-        'home_banner_text','our_articles','our_reviews'));
+        'home_banner_text','our_articles','our_reviews','performance'));
     }
 
     public function blog()

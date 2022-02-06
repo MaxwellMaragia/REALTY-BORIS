@@ -133,6 +133,16 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group ">
+                                    <div class="form-group ">
+                                        <img src="{{ Storage::url($performance->value) }}"  alt="User Image" id="preview8" onchange="previewImage(this)" width="50%">
+                                    </div>
+                                    <div class="file">
+                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload performance image</label>
+                                        <input type="file" name="performance" accept="image/*" class="form-control" id="ninth">
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>
@@ -194,6 +204,9 @@
         });
         $("#eith").change(function(){
             readURL(this,'#preview7');
+        });
+        $("#ninth").change(function(){
+            readURL(this,'#preview8');
         });
 
     </script>
